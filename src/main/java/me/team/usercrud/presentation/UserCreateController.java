@@ -1,7 +1,6 @@
 package me.team.usercrud.presentation;
 
 import lombok.AllArgsConstructor;
-import me.team.usercrud.application.dto.UserDto;
 import me.team.usercrud.application.user.UserCreateService;
 import me.team.usercrud.domain.User;
 import org.springframework.web.bind.annotation.*;
@@ -12,7 +11,7 @@ public class UserCreateController {
 
    private UserCreateService userCreateService;
 
-    @PostMapping("/user")
+    @PostMapping("/create")
     public void createUser(@ModelAttribute User user) {
         User newUser = userCreateService.createUser(user);
 

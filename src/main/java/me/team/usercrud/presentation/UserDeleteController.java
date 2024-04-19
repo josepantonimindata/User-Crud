@@ -13,12 +13,12 @@ public class UserDeleteController {
 
     private UserDeleteService userDeleteService;
 
-    @GetMapping("/user/{id}")
+    @GetMapping("/delete/{id}")
     private void deleteUserById(@PathVariable String id) {
         userDeleteService.deleteUserById(UUID.fromString(id));
     }
 
-    @DeleteMapping("/user")
+    @DeleteMapping("/deleteUser")
     public void deleteUser(@ModelAttribute User user) {
         userDeleteService.deleteUser(user);
     }
