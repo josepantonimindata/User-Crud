@@ -18,7 +18,7 @@ import java.util.UUID;
 @Table(name = "users")
 public class User {
     @Id
-    private UUID uuid;
+    private UUID id;
     private String name;
     private String surname;
     private String email;

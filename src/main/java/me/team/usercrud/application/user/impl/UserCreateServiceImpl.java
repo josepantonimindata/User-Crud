@@ -1,14 +1,18 @@
 package me.team.usercrud.application.user.impl;
 
+import lombok.AllArgsConstructor;
 import me.team.usercrud.application.user.UserCreateService;
 import me.team.usercrud.domain.User;
+import me.team.usercrud.domain.UserRepository;
 import org.springframework.stereotype.Service;
 
+@AllArgsConstructor
 @Service
 public class UserCreateServiceImpl implements UserCreateService {
+    private UserRepository userRepository;
 
     @Override
-    public void createUser(User user) {
-        throw new IllegalArgumentException("Method not implemented");
+    public User createUser(User user) {
+        return userRepository.save(user);
     }
 }

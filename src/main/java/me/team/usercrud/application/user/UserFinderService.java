@@ -1,11 +1,13 @@
 package me.team.usercrud.application.user;
 
+import me.team.usercrud.domain.User;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.UUID;
 
 public interface UserFinderService {
-    void findUser(UUID userID);
+    User findUser(UUID userID);
 
-    void findAll();
+    List<User> findAll();
 }
