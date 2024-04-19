@@ -1,12 +1,10 @@
 package me.team.usercrud.domain.criteria;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import me.team.usercrud.domain.StringValueObject;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-public class FilterOperator {
-    private String operator;
+
+public class FilterOperator extends StringValueObject {
+    public FilterOperator(String value) {
+        super(value);
+    }
 }

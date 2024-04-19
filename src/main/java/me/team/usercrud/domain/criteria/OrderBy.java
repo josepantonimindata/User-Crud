@@ -1,12 +1,9 @@
 package me.team.usercrud.domain.criteria;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import me.team.usercrud.domain.StringValueObject;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-public class OrderBy {
-    private String field;
+public class OrderBy extends StringValueObject {
+    public OrderBy(String value) {
+        super(value);
+    }
 }

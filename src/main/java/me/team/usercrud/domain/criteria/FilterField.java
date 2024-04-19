@@ -1,12 +1,9 @@
 package me.team.usercrud.domain.criteria;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import me.team.usercrud.domain.StringValueObject;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-public class FilterField {
-    private String field;
+public class FilterField extends StringValueObject {
+    public FilterField(String value) {
+        super(value);
+    }
 }
