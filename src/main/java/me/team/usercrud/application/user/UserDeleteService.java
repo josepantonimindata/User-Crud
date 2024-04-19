@@ -1,18 +1,11 @@
 package me.team.usercrud.application.user;
 
-import lombok.AllArgsConstructor;
-import me.team.usercrud.domain.UserRepository;
-import org.springframework.stereotype.Service;
+import me.team.usercrud.domain.User;
 
 import java.util.UUID;
 
+public interface UserDeleteService {
+    void deleteUserById(UUID userID);
 
-@AllArgsConstructor
-@Service
-public class UserDeleteService {
-    private UserRepository userRepository;
-
-    public void delete(UUID userID) {
-        userRepository.deleteById(userID);
-    }
+    void deleteUser(User user);
 }
