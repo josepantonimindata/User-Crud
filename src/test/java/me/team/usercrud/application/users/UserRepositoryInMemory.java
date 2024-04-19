@@ -5,6 +5,7 @@ import me.team.usercrud.domain.UserRepository;
 
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Optional;
 import java.util.UUID;
 
 public class UserRepositoryInMemory implements UserRepository {
@@ -20,7 +21,7 @@ public class UserRepositoryInMemory implements UserRepository {
     }
 
     @Override
-    public User find(UUID userID) {
+    public Optional<User> findById(UUID userID) {
         try {
             return users.stream().filter(user -> user.getId() == userID).findFirst().get();
         } catch (NoSuchElementException e) {
