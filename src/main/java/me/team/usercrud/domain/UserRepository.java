@@ -8,4 +8,5 @@ public interface UserRepository {
     User find(UUID userID);
     List<User> findAll();
     User save(User user);
+    boolean existsById(UUID userId);
 }
