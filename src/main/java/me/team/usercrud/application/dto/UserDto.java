@@ -1,4 +1,4 @@
-package me.team.usercrud.dto;
+package me.team.usercrud.application.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -5,6 +5,6 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public abstract class StringValueObject {
+public abstract class StringValueObject{
     private String value;
 }

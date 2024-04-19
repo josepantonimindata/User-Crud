@@ -1,4 +1,4 @@
-package me.team.usercrud.dto.criteria;
+package me.team.usercrud.application.dto.criteria;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
