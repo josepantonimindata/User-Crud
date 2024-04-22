@@ -1,5 +1,7 @@
 package me.team.usercrud.presentation;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import lombok.AllArgsConstructor;
 import me.team.usercrud.application.user.UserDeleteService;
 import me.team.usercrud.domain.User;
@@ -16,6 +18,20 @@ public class UserDeleteController {
 
     private UserDeleteService userDeleteService;
 
+    @Operation(
+        description = "Delete a User by ID",
+        summary = "Delete User by ID",
+        responses = {
+            @ApiResponse(
+                description = "Success",
+                responseCode = "200"
+            ),
+            @ApiResponse(
+                description = "Not Found, User not found",
+                responseCode = "404"
+            )
+        }
+    )
     @DeleteMapping("/delete/{id}")
     public void deleteUserById(@PathVariable String id) {
         userDeleteService.deleteUserById(UUID.fromString(id));

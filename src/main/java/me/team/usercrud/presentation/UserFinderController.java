@@ -1,5 +1,7 @@
 package me.team.usercrud.presentation;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import lombok.AllArgsConstructor;
 import me.team.usercrud.application.user.UserFinderService;
 import me.team.usercrud.domain.User;
@@ -16,6 +18,20 @@ public class UserFinderController {
 
     private UserFinderService userFinderService;
 
+    @Operation(
+        description = "Find a User by ID",
+        summary = "Find User by ID",
+        responses = {
+            @ApiResponse(
+                description = "Success",
+                responseCode = "200"
+            ),
+            @ApiResponse(
+                description = "Not Found, User not found",
+                responseCode = "404"
+            )
+        }
+    )
     @GetMapping("/users/{id}")
     public User getUser(@PathVariable String id) {
         return userFinderService.findUser(UUID.fromString(id));

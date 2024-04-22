@@ -1,5 +1,7 @@
 package me.team.usercrud.presentation;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import lombok.AllArgsConstructor;
 import me.team.usercrud.application.user.UserUpdateService;
 import me.team.usercrud.domain.User;
@@ -13,6 +15,20 @@ public class UserUpdateController {
 
     private UserUpdateService userUpdateService;
 
+    @Operation(
+        description = "Update a User",
+        summary = "Update User",
+        responses = {
+            @ApiResponse(
+                description = "Success",
+                responseCode = "200"
+            ),
+            @ApiResponse(
+                description = "Not Found, User not found",
+                responseCode = "404"
+            )
+        }
+    )
     @PutMapping("/update/{id}")
     public void updateUser(@RequestBody User user) {
         User updatedUser = userUpdateService.updateUser(user);
