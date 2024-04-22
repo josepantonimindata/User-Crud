@@ -10,4 +10,8 @@ import lombok.NoArgsConstructor;
 public class OrderPrimitive {
     private String orderBy;
     private String orderType;
+
+    public boolean hasOrder() {
+        return orderType != null;
+    }
 }

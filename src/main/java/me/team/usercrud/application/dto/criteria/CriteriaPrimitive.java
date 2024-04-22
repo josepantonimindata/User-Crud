@@ -12,5 +12,9 @@ import java.util.List;
 public class CriteriaPrimitive {
     private OrderPrimitive order;
     private List<FilterPrimitive> filters;
+
+    public boolean hasOrder() {
+        return order != null && order.hasOrder();
+    }
 }
 
