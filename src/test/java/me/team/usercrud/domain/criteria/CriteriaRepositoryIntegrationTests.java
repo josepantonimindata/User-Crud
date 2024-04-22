@@ -60,7 +60,7 @@ public class CriteriaRepositoryIntegrationTests {
         var users = criteriaRepository.search(CriteriaFactory.contains("name", userJohn.getName()));
 
         assertEquals(1, users.size());
-        assertEquals(userJohn, users.get(0));
+        assertEquals(userJohn, users.getFirst());
     }
 
     @Test
