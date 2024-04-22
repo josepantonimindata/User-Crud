@@ -20,7 +20,7 @@ public class CriteriaFactory {
 
     public static Criteria contains(String field, String value) {
         return new Criteria(
-            Filters.from(List.of(new Filter(new FilterField(field), FilterOperator.CONTAINS, new FilterValue(value)))),
+            new Filters(List.of(new Filter(new FilterField(field), FilterOperator.CONTAINS, new FilterValue(value)))),
             Order.none()
         );
     }

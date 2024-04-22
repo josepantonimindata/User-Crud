@@ -74,7 +74,7 @@ public class CriteriaRepositoryIntegrationTests {
         userRepository.save(userBob);
 
         var complexCriteria = new Criteria(
-            Filters.from(
+            new Filters(
                 List.of(new Filter(new FilterField("name"), FilterOperator.CONTAINS, new FilterValue(userJane.getName())),
                     new Filter(new FilterField("email"), FilterOperator.EQUAL, new FilterValue(userJane.getEmail())))
             ),
