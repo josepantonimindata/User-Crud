@@ -1,0 +1,47 @@
+###
+POST http://localhost:80/create
+Content-Type: application/json
+
+{
+  "id": "e49b2af6-c3d8-48f7-a7e5-f383f93ed900",
+  "name": "",
+  "surname": "",
+  "email": "",
+  "password": ""
+}
+
+###
+GET http://localhost:80/users
+Content-Type: application/json
+
+###
+GET http://localhost:80/users/e49b2af6-c3d8-48f7-a7e5-f283f93ed900
+Content-Type: application/json
+
+###
+PUT http://localhost:80/update/e49b2af6-c3d8-48f7-a7e5-f283f93ed900
+Content-Type: application/json
+
+{
+  "id": "e49b2af6-c3d8-48f7-a7e5-f283f93ed900",
+  "name": "updated!",
+  "surname": "",
+  "email": "",
+  "password": ""
+}
+
+###
+DELETE http://localhost:80/delete/e49b2af6-c3d8-48f7-a7e5-f283f93ed900
+Content-Type: application/json
+
+###
+DELETE http://localhost:80/deleteUser
+Content-Type: application/json
+
+{
+  "id": "e49b2af6-c3d8-48f7-a7e5-f383f93ed900",
+  "name": "a",
+  "surname": "",
+  "email": "",
+  "password": ""
+}
