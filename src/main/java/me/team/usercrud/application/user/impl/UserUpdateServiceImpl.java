@@ -16,7 +16,7 @@ public class UserUpdateServiceImpl implements UserUpdateService {
     @Override
     public User updateUser(User user) {
         val id = user.getId();
-        if (userRepository.existsById(id)) {
+        if (!userRepository.existsById(id)) {
            throw new UserNotFoundException(id);
         }
         return userRepository.save(user);
