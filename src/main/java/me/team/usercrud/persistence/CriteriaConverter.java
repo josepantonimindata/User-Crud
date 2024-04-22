@@ -29,7 +29,7 @@ public final class CriteriaConverter<T> {
         CriteriaQuery<T> criteriaQuery = builder.createQuery(aggregateClass);
         Root<T> root = criteriaQuery.from(aggregateClass);
 
-        criteriaQuery.where(formatPredicates(criteria.getFilters(), root));
+        criteriaQuery.where(formatPredicates(criteria.getFilters().getFilters(), root));
 
         if (criteria.getOrder().hasOrder()) {
             Path<Object> orderBy = root.get(criteria.getOrder().getOrderBy().getValue());

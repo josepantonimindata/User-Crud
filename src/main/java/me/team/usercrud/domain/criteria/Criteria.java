@@ -8,7 +8,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 public class Criteria {
-    private List<Filter> filters;
+    private Filters filters;
     private Order order;
 
     public boolean hasOrder() {
