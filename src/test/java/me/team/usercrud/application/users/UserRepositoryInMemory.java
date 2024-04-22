@@ -23,9 +23,9 @@ public class UserRepositoryInMemory implements UserRepository {
     @Override
     public Optional<User> findById(UUID userID) {
         try {
-            return users.stream().filter(user -> user.getId() == userID).findFirst().get();
+            return users.stream().filter(user -> user.getId() == userID).findFirst();
         } catch (NoSuchElementException e) {
-            return null;
+            return Optional.empty();
         }
     }
 
@@ -41,8 +41,6 @@ public class UserRepositoryInMemory implements UserRepository {
 
     @Override
     public boolean existsById(UUID userId) {
-        return users.stream().
-                filter(user -> user.getId() == userId)
-                .count() > 0;
+        return users.stream().anyMatch(user -> user.getId().equals(userId));
     }
 }

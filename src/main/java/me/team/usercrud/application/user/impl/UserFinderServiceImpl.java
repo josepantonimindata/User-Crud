@@ -18,11 +18,11 @@ public class UserFinderServiceImpl implements UserFinderService {
     private UserRepository userRepository;
 
     @Override
-    public Optional<User> findUser(UUID userID) {
+    public User findUser(UUID userID) {
         if (!userRepository.existsById(userID)) {
            throw new UserNotFoundException(userID);
         }
-        return userRepository.findById(userID);
+        return userRepository.findById(userID).get();
     }
 
     @Override
