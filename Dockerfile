@@ -1,4 +1,4 @@
-FROM openjdk:17-jdk-alpine
+FROM amazoncorretto:21-alpine3.18
 
 # Create user to run application
 RUN addgroup -S spring && adduser -S spring -G spring
