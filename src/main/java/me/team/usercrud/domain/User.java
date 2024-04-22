@@ -16,7 +16,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "users")
+@Table(schema = "public", name = "users")
 public class User {
     @Id
     private UUID id;
@@ -38,4 +38,3 @@ public class User {
         return Objects.hash(id);
     }
 }
-
