@@ -43,8 +43,8 @@ class UserCreateControllerTest {
         String userJson = objectMapper.writeValueAsString(user);
 
         mockMvc.perform(post("/create")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(userJson))
-                .andExpect(status().isOk());
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(userJson))
+            .andExpect(status().isCreated());
     }
 }
