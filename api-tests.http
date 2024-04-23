@@ -45,3 +45,6 @@ Content-Type: application/json
   "email": "",
   "password": ""
 }
+
+###
+GET localhost/users/search?order.orderBy=name&order.orderType=DESC&filters[0].field=field1&filters[0].operator=GT&filters[0].value=value1&filters[1].field=field2&filters[1].operator=EQUAL&filters[1].value=value2
