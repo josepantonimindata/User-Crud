@@ -1,7 +1,7 @@
 package me.team.usercrud.user.application.updateuser;
 
-import me.team.usercrud.user.domain.User;
+import me.team.usercrud.user.domain.*;
 
 public interface UserUpdateService {
-    User updateUser(User user);
+    User updateUser(UserId id, UserName name, UserSurname surname, UserEmail email, UserPassword password);
 }

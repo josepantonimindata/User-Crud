@@ -1,4 +1,4 @@
-package me.team.usercrud.user.infrastructure.controllers.handler;
+package me.team.usercrud.user.infrastructure.controllers.handlers;
 
 import me.team.usercrud.user.application.exceptions.UserAlreadyExistsException;
 import me.team.usercrud.user.application.exceptions.UserNotFoundException;

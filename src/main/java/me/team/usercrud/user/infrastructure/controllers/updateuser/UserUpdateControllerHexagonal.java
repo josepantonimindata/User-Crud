@@ -1,20 +1,20 @@
-package me.team.usercrud.user.infrastructure.controllers;
+package me.team.usercrud.user.infrastructure.controllers.updateuser;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import lombok.AllArgsConstructor;
 import me.team.usercrud.user.application.updateuser.UserUpdateService;
-import me.team.usercrud.user.domain.User;
+import me.team.usercrud.user.domain.*;
+import me.team.usercrud.user.infrastructure.controllers.UserRequest;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class UserUpdateController {
-    private final UserUpdateService userUpdateService;
+@AllArgsConstructor
+public class UserUpdateControllerHexagonal {
 
-    public UserUpdateController(UserUpdateService userUpdateService) {
-        this.userUpdateService = userUpdateService;
-    }
+    private UserUpdateService userUpdateService;
 
     @Operation(
         description = "Update a User",
@@ -30,9 +30,15 @@ public class UserUpdateController {
             )
         }
     )
-    @PutMapping("/update/{id}")
-    public void updateUser(@RequestBody User user) {
-        User updatedUser = userUpdateService.updateUser(user);
+    @PutMapping("/hexagonal/update/{id}")
+    public void updateUser(@RequestBody UserRequest user) {
+        User updatedUser = userUpdateService.updateUser(
+                new UserId(user.id()),
+                new UserName(user.name()),
+                new UserSurname(user.surname()),
+                new UserEmail(user.email()),
+                new UserPassword(user.password())
+        );
 
         System.out.println("User updated: " + updatedUser);
     }

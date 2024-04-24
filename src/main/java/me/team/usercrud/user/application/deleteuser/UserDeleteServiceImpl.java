@@ -23,14 +23,4 @@ public class UserDeleteServiceImpl implements UserDeleteService {
 
         userRepository.deleteById(id);
     }
-
-    @Override
-    public void deleteUser(User user) {
-        final var userId = user.id();
-        if (!userRepository.existsById(userId)) {
-            throw new UserNotFoundException(userId);
-        }
-
-        userRepository.deleteById(userId);
-    }
 }

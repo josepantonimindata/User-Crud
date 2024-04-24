@@ -13,12 +13,13 @@ public final class UserPassword extends StringValueObject {
     private static final RegexValidator regexValidator = new RegexValidator(regex);
 
     public UserPassword(String value) {
-        super(guard(value));
+        super(value);
+        guard(value);
     }
 
-    private static String guard(String value) {
+    private String guard(String value) {
         if (regexValidator.validate(value)) {
-            throw new IllegalArgumentException("Invalid Email");
+            throw new IllegalArgumentException("Invalid password");
         }
         return value;
     }

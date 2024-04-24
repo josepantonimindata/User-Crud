@@ -1,4 +1,4 @@
-package me.team.usercrud.user.infrastructure.controllers.handler;
+package me.team.usercrud.user.infrastructure.controllers.handlers;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ProblemDetail;

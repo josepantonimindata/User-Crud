@@ -1,7 +1,8 @@
-package me.team.usercrud.user.infrastructure.controllers;
+package me.team.usercrud.user.infrastructure.controllers.deleteuser;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import lombok.AllArgsConstructor;
 import me.team.usercrud.user.application.deleteuser.UserDeleteService;
 import me.team.usercrud.user.domain.User;
 import me.team.usercrud.user.domain.UserId;
@@ -11,11 +12,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class UserDeleteController {
+@AllArgsConstructor
+public class UserDeleteControllerHexagonal {
 
-    private final UserDeleteService userDeleteService;
-
-    public UserDeleteController(UserDeleteService userDeleteService) {this.userDeleteService = userDeleteService;}
+    private UserDeleteService userDeleteService;
 
     @Operation(
         description = "Delete a User by ID",
@@ -31,13 +31,8 @@ public class UserDeleteController {
             )
         }
     )
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/hexagonal/delete/{id}")
     public void deleteUserById(@PathVariable String id) {
         userDeleteService.deleteUserById(new UserId(id));
-    }
-
-    @DeleteMapping("/deleteUser")
-    public void deleteUser(@RequestBody User user) {
-        userDeleteService.deleteUser(user);
     }
 }
