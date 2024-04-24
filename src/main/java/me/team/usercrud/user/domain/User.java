@@ -10,18 +10,22 @@ public final class User extends AggregateRoot {
     private UserSurname surname;
     private UserEmail email;
     private UserPassword password;
+    private UserCreationTime creationTime;
+    private UserLastEditTime lastEditTime;
 
-    public User(UserId id, UserName name, UserSurname surname, UserEmail email, UserPassword password) {
+    public User(UserId id, UserName name, UserSurname surname, UserEmail email, UserPassword password, UserCreationTime creationTime, UserLastEditTime lastEditTime) {
         this.id = id;
         this.name = name;
         this.surname = surname;
         this.email = email;
         this.password = password;
+        this.creationTime = creationTime;
+        this.lastEditTime = lastEditTime;
     }
 
     public static User create(UserId id, UserName name, UserSurname surname, UserEmail email, UserPassword password) {
         // Todo: record event of user created
-        return new User(id, name, surname, email, password);
+        return new User(id, name, surname, email, password, UserCreationTime.now() , UserLastEditTime.now());
     }
 
     @Override
@@ -71,5 +75,21 @@ public final class User extends AggregateRoot {
 
     public void password(UserPassword password) {
         this.password = password;
+    }
+
+    public UserCreationTime creationTime() {
+        return creationTime;
+    }
+
+    public void creationTime(UserCreationTime creationTime) {
+        this.creationTime = creationTime;
+    }
+
+    public UserLastEditTime lastEditTime() {
+        return lastEditTime;
+    }
+
+    public void lastEditTime(UserLastEditTime lastEditTime) {
+        this.lastEditTime = lastEditTime;
     }
 }

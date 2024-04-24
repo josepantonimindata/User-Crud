@@ -18,13 +18,17 @@ public final class UserEntity {
     private String surname;
     private String email;
     private String password;
+    private String creationTime;
+    private String lastEditTime;
 
-    public UserEntity(String id, String name, String surname, String email, String password) {
+    public UserEntity(String id, String name, String surname, String email, String password, String creationTime, String lastEditTime) {
         this.id = id;
         this.name = name;
         this.surname = surname;
         this.email = email;
         this.password = password;
+        this.creationTime = creationTime;
+        this.lastEditTime = lastEditTime;
     }
 
     public UserEntity() {}
@@ -67,6 +71,22 @@ public final class UserEntity {
 
     public void password(String password) {
         this.password = password;
+    }
+
+    public String creationTime() {
+        return creationTime;
+    }
+
+    public void creationTime(String creationTime) {
+        this.creationTime = creationTime;
+    }
+
+    public String lastEditTime() {
+        return lastEditTime;
+    }
+
+    public void lastEditTime(String lastEditTime) {
+        this.lastEditTime = lastEditTime;
     }
 
     @Override

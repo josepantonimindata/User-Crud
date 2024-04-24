@@ -1,4 +1,4 @@
-package me.team.usercrud.controllers;
+package me.team.usercrud.user.infrastructure.controllers;
 
 import lombok.AllArgsConstructor;
 import me.team.usercrud.shared.infrastructure.dto.UserDto;

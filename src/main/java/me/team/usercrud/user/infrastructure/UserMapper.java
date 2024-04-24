@@ -14,7 +14,9 @@ public final class UserMapper implements Mapper<User, UserEntity> {
                 user.name().value(),
                 user.surname().value(),
                 user.email().value(),
-                user.password().value()
+                user.password().value(),
+                user.lastEditTime().stingValue(),
+                user.lastEditTime().stingValue()
         );
     }
 
@@ -25,7 +27,9 @@ public final class UserMapper implements Mapper<User, UserEntity> {
                 new UserName(userEntity.name()),
                 new UserSurname(userEntity.surname()),
                 new UserEmail(userEntity.email()),
-                new UserPassword(userEntity.password())
+                new UserPassword(userEntity.password()),
+                new UserCreationTime(userEntity.creationTime()),
+                new UserLastEditTime(userEntity.lastEditTime())
         );
     }
 }

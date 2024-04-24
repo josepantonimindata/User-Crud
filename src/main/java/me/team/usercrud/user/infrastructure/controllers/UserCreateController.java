@@ -1,4 +1,4 @@
-package me.team.usercrud.controllers;
+package me.team.usercrud.user.infrastructure.controllers;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
