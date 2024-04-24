@@ -1,16 +1,17 @@
 package me.team.usercrud.user.application.createuser;
 
-import lombok.AllArgsConstructor;
-import me.team.usercrud.user.application.createuser.UserCreateService;
 import me.team.usercrud.user.application.exceptions.UserAlreadyExistsException;
 import me.team.usercrud.user.domain.User;
 import me.team.usercrud.user.domain.UserRepository;
 import org.springframework.stereotype.Service;
 
-@AllArgsConstructor
 @Service
 public class UserCreateServiceImpl implements UserCreateService {
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
+
+    public UserCreateServiceImpl(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     @Override
     public User createUser(User user) {

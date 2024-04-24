@@ -34,7 +34,7 @@ public class UserRepositoryHibernate implements UserRepository {
     @Override
     public List<User> findAll() {
         List<User> users = new ArrayList<>();
-        for (var userEntity: userEntityRepository.findAll()) {
+        for (var userEntity : userEntityRepository.findAll()) {
             users.add(userEntityToUser(userEntity));
         }
 
@@ -43,7 +43,7 @@ public class UserRepositoryHibernate implements UserRepository {
 
     @Override
     public User save(User user) {
-        var savedUserEntity =  userEntityRepository.save(userToUserEntity(user));
+        var savedUserEntity = userEntityRepository.save(userToUserEntity(user));
         return userEntityToUser(savedUserEntity);
     }
 

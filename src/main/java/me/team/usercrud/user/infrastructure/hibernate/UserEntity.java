@@ -10,7 +10,7 @@ import java.util.Objects;
 
 @Builder
 @Entity
-@Table(name="Users")
+@Table(name = "Users")
 public final class UserEntity {
     @Id
     private String id;

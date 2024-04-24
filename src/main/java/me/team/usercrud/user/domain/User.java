@@ -25,7 +25,7 @@ public final class User extends AggregateRoot {
 
     public static User create(UserId id, UserName name, UserSurname surname, UserEmail email, UserPassword password) {
         // Todo: record event of user created
-        return new User(id, name, surname, email, password, UserCreationTime.now() , UserLastEditTime.now());
+        return new User(id, name, surname, email, password, UserCreationTime.now(), UserLastEditTime.now());
     }
 
     @Override

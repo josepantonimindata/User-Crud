@@ -10,14 +10,14 @@ public final class UserLastEditTime extends DatetimeValueObject {
         guard(value());
     }
 
+    public static UserLastEditTime now() {
+        return new UserLastEditTime(LocalDateTime.now().toString());
+    }
+
     // check is not future
     private void guard(LocalDateTime dateTime) {
         if (dateTime.isAfter(LocalDateTime.now())) {
             throw new IllegalArgumentException("A user can not bee modified in the future");
         }
-    }
-
-    public static UserLastEditTime now() {
-        return new UserLastEditTime(LocalDateTime.now().toString());
     }
 }

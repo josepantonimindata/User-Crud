@@ -1,9 +1,9 @@
 package me.team.usercrud.shared.infrastructure;
 
 import jakarta.persistence.EntityManager;
-import me.team.usercrud.user.domain.User;
 import me.team.usercrud.shared.domain.criteria.Criteria;
 import me.team.usercrud.shared.domain.criteria.CriteriaRepository;
+import me.team.usercrud.user.domain.User;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

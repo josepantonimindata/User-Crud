@@ -10,7 +10,7 @@ public final class RegexValidator {
     }
 
     public boolean validate(String value) {
-        var matcher  = pattern.matcher(value);
+        var matcher = pattern.matcher(value);
         return matcher.matches();
     }
 }

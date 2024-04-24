@@ -1,7 +1,5 @@
 package me.team.usercrud.shared.domain;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.util.Objects;
 
 

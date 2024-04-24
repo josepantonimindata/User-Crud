@@ -1,8 +1,5 @@
 package me.team.usercrud.shared.domain.criteria;
 
-import lombok.Getter;
-
-@Getter
 public enum OrderType {
     ASC,
     DESC,
