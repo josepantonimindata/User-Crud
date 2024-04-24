@@ -1,7 +1,5 @@
 package me.team.usercrud.shared.domain;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.time.LocalDateTime;
 import java.util.Objects;
 
@@ -45,7 +43,7 @@ public abstract class DatetimeValueObject implements Comparable<DatetimeValueObj
     }
 
     @Override
-    public int compareTo(@NotNull DatetimeValueObject o) {
+    public int compareTo(DatetimeValueObject o) {
         if (this.isBefore(o)) {
             return -1;
         }

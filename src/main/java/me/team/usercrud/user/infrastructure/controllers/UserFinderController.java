@@ -2,7 +2,6 @@ package me.team.usercrud.user.infrastructure.controllers;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import lombok.AllArgsConstructor;
 import me.team.usercrud.user.application.finduser.UserFinderService;
 import me.team.usercrud.user.domain.User;
 import me.team.usercrud.user.domain.UserId;
@@ -13,11 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@AllArgsConstructor
 public class UserFinderController {
 
     private UserFinderService userFinderService;
-
     @Operation(
         description = "Find a User by ID",
         summary = "Find User by ID",

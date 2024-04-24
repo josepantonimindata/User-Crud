@@ -4,10 +4,10 @@ import java.util.List;
 import java.util.Objects;
 
 public class CriteriaPrimitive {
-    private OrderPrimitive order;
     private List<FilterPrimitive> filters;
+    private OrderPrimitive order;
 
-    public CriteriaPrimitive(OrderPrimitive order, List<FilterPrimitive> filters) {
+    public CriteriaPrimitive(List<FilterPrimitive> filters, OrderPrimitive order) {
         this.order = order;
         this.filters = filters;
     }
