@@ -3,7 +3,9 @@ package me.team.usercrud.user.infrastructure.mappers;
 import me.team.usercrud.shared.domain.Mapper;
 import me.team.usercrud.shared.infrastructure.dto.UserDto;
 import me.team.usercrud.user.domain.*;
+import org.springframework.stereotype.Component;
 
+@Component
 public class UserDtoMapper implements Mapper<UserDto, User> {
     @Override
     public User from(UserDto userDto) {

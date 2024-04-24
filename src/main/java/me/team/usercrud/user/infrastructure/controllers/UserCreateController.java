@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class UserCreateController {
 
-    private UserCreateService userCreateService;
+    private final UserCreateService userCreateService;
+
+    public UserCreateController(UserCreateService userCreateService) {this.userCreateService = userCreateService;}
 
     @Operation(
         description = "Create a new User, the user ID field must be unique and with UUID format",

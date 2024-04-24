@@ -14,7 +14,10 @@ import java.util.List;
 @RestController
 public class UserFinderController {
 
-    private UserFinderService userFinderService;
+    private final UserFinderService userFinderService;
+
+    public UserFinderController(UserFinderService userFinderService) {this.userFinderService = userFinderService;}
+
     @Operation(
         description = "Find a User by ID",
         summary = "Find User by ID",

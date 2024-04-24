@@ -14,7 +14,7 @@ public final class UserCreationTime extends DatetimeValueObject {
         return new UserCreationTime(LocalDateTime.now().toString());
     }
 
-    // check is not future
+    // Check is not created in the future
     private void guard(LocalDateTime dateTime) {
         if (dateTime.isAfter(LocalDateTime.now())) {
             throw new IllegalArgumentException("A user can not bee Created in the future");

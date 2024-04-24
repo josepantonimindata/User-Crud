@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class UserDeleteController {
 
-    private UserDeleteService userDeleteService;
+    private final UserDeleteService userDeleteService;
+
+    public UserDeleteController(UserDeleteService userDeleteService) {this.userDeleteService = userDeleteService;}
 
     @Operation(
         description = "Delete a User by ID",

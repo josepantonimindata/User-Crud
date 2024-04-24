@@ -4,8 +4,8 @@ import me.team.usercrud.shared.domain.RegexValidator;
 import me.team.usercrud.shared.domain.StringValueObject;
 
 /**
- * - at least 8 characters
- * - must contain at least 1 uppercase letter, 1 lowercase letter, and 1 number
+ * - at least eight characters
+ * - must contain at least one uppercase letter, one lowercase letter, and one number
  * - Can contain special characters
  */
 public final class UserPassword extends StringValueObject {

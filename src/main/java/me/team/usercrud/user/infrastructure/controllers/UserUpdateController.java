@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class UserUpdateController {
-    private UserUpdateService userUpdateService;
+    private final UserUpdateService userUpdateService;
 
     public UserUpdateController(UserUpdateService userUpdateService) {
         this.userUpdateService = userUpdateService;
