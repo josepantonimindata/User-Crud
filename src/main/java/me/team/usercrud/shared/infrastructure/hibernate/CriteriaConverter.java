@@ -1,4 +1,4 @@
-package me.team.usercrud.shared.infrastructure;
+package me.team.usercrud.shared.infrastructure.hibernate;
 
 import jakarta.persistence.criteria.*;
 import me.team.usercrud.shared.domain.criteria.Criteria;

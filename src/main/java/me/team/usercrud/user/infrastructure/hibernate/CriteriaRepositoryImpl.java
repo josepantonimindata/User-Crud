@@ -1,8 +1,9 @@
-package me.team.usercrud.shared.infrastructure;
+package me.team.usercrud.user.infrastructure.hibernate;
 
 import jakarta.persistence.EntityManager;
 import me.team.usercrud.shared.domain.criteria.Criteria;
 import me.team.usercrud.shared.domain.criteria.CriteriaRepository;
+import me.team.usercrud.shared.infrastructure.hibernate.CriteriaConverter;
 import me.team.usercrud.user.domain.User;
 import org.springframework.stereotype.Repository;
 
