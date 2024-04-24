@@ -3,7 +3,7 @@ package me.team.usercrud.controllers;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import lombok.AllArgsConstructor;
-import me.team.usercrud.user.application.UserUpdateService;
+import me.team.usercrud.user.application.updateuser.UserUpdateService;
 import me.team.usercrud.user.domain.User;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;

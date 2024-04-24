@@ -1,7 +1,7 @@
-package me.team.usercrud.user.application.impl;
+package me.team.usercrud.user.application.searchuser;
 
 import lombok.AllArgsConstructor;
-import me.team.usercrud.user.application.UserSearchService;
+import me.team.usercrud.user.application.searchuser.UserSearchService;
 import me.team.usercrud.user.domain.User;
 import me.team.usercrud.shared.domain.criteria.Criteria;
 import me.team.usercrud.shared.domain.criteria.CriteriaRepository;

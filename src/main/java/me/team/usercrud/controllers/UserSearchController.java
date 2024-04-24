@@ -1,10 +1,10 @@
 package me.team.usercrud.controllers;
 
 import lombok.AllArgsConstructor;
-import me.team.usercrud.shared.application.dto.UserDto;
-import me.team.usercrud.shared.application.dto.criteria.CriteriaMapper;
-import me.team.usercrud.shared.application.dto.criteria.CriteriaPrimitive;
-import me.team.usercrud.user.application.UserSearchService;
+import me.team.usercrud.shared.infrastructure.dto.UserDto;
+import me.team.usercrud.shared.infrastructure.dto.criteria.CriteriaMapper;
+import me.team.usercrud.shared.infrastructure.dto.criteria.CriteriaPrimitive;
+import me.team.usercrud.user.application.searchuser.UserSearchService;
 import org.modelmapper.ModelMapper;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

@@ -1,4 +1,4 @@
-package me.team.usercrud.user.application;
+package me.team.usercrud.user.application.updateuser;
 
 import me.team.usercrud.user.domain.User;
 

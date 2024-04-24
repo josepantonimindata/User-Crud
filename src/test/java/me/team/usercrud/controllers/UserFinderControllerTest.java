@@ -1,6 +1,6 @@
 package me.team.usercrud.controllers;
 
-import me.team.usercrud.user.application.UserFinderService;
+import me.team.usercrud.user.application.finduser.UserFinderService;
 import me.team.usercrud.user.domain.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

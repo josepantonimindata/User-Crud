@@ -3,7 +3,7 @@ package me.team.usercrud.controllers;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import lombok.AllArgsConstructor;
-import me.team.usercrud.user.application.UserFinderService;
+import me.team.usercrud.user.application.finduser.UserFinderService;
 import me.team.usercrud.user.domain.User;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

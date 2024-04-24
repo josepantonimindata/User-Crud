@@ -5,7 +5,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Builder;
-import me.team.usercrud.user.domain.User;
 
 import java.util.Objects;
 

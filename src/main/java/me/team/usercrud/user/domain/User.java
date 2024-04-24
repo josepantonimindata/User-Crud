@@ -1,21 +1,17 @@
 package me.team.usercrud.user.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
 import me.team.usercrud.shared.domain.AggregateRoot;
 
 import java.util.Objects;
-import java.util.UUID;
 
 public final class User extends AggregateRoot {
-    private final UUID id;
+    private final UserId id;
     private UserName name;
     private UserSurname surname;
     private UserEmail email;
     private UserPassword password;
 
-    public User(UUID id, UserName name, UserSurname surname, UserEmail email, UserPassword password) {
+    public User(UserId id, UserName name, UserSurname surname, UserEmail email, UserPassword password) {
         this.id = id;
         this.name = name;
         this.surname = surname;
@@ -23,7 +19,7 @@ public final class User extends AggregateRoot {
         this.password = password;
     }
 
-    public static User create(UUID id, UserName name, UserSurname surname, UserEmail email, UserPassword password) {
+    public static User create(UserId id, UserName name, UserSurname surname, UserEmail email, UserPassword password) {
         // Todo: record event of user created
         return new User(id, name, surname, email, password);
     }
@@ -41,7 +37,7 @@ public final class User extends AggregateRoot {
         return Objects.hash(id);
     }
 
-    public UUID id() {
+    public UserId id() {
         return id;
     }
 

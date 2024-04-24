@@ -1,7 +1,7 @@
 package me.team.usercrud.controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import me.team.usercrud.user.application.UserCreateService;
+import me.team.usercrud.user.application.createuser.UserCreateService;
 import me.team.usercrud.user.domain.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

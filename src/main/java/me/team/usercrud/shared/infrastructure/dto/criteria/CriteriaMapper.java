@@ -1,6 +1,5 @@
-package me.team.usercrud.shared.application.dto.criteria;
+package me.team.usercrud.shared.infrastructure.dto.criteria;
 
-import me.team.usercrud.domain.criteria.*;
 import me.team.usercrud.shared.domain.criteria.*;
 
 public class CriteriaMapper {

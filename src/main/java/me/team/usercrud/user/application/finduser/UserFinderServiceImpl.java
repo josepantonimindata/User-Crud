@@ -1,15 +1,15 @@
-package me.team.usercrud.user.application.impl;
+package me.team.usercrud.user.application.finduser;
 
 import lombok.AllArgsConstructor;
-import me.team.usercrud.user.application.UserFinderService;
+import me.team.usercrud.user.application.finduser.UserFinderService;
 import me.team.usercrud.user.application.exceptions.UserNotFoundException;
 import me.team.usercrud.user.domain.User;
-import me.team.usercrud.domain.UserRepository;
+import me.team.usercrud.user.domain.UserId;
+import me.team.usercrud.user.domain.UserRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 @AllArgsConstructor
 @Service
@@ -17,11 +17,11 @@ public class UserFinderServiceImpl implements UserFinderService {
     private UserRepository userRepository;
 
     @Override
-    public User findUser(UUID userID) {
-        if (!userRepository.existsById(userID)) {
-           throw new UserNotFoundException(userID);
+    public User findUser(UserId id) {
+        if (!userRepository.existsById(id)) {
+           throw new UserNotFoundException(id);
         }
-        return userRepository.findById(userID).get();
+        return userRepository.findById(id).get();
     }
 
     @Override

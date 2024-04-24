@@ -2,7 +2,7 @@ package me.team.usercrud.application.users;
 
 import lombok.val;
 import me.team.usercrud.user.application.exceptions.UserAlreadyExistsException;
-import me.team.usercrud.user.application.impl.UserCreateServiceImpl;
+import me.team.usercrud.user.application.createuser.UserCreateServiceImpl;
 import me.team.usercrud.user.domain.User;
 import org.junit.jupiter.api.Test;
 
