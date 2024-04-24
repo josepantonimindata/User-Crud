@@ -1,5 +1,7 @@
 package me.team.usercrud.domain.criteria;
 
+import me.team.usercrud.shared.domain.criteria.*;
+
 import java.util.List;
 
 public class CriteriaFactory {

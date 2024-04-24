@@ -23,7 +23,7 @@ public final class User extends AggregateRoot {
         this.password = password;
     }
 
-    public User create(UUID id, UserName name, UserSurname surname, UserEmail email, UserPassword password) {
+    public static User create(UUID id, UserName name, UserSurname surname, UserEmail email, UserPassword password) {
         // Todo: record event of user created
         return new User(id, name, surname, email, password);
     }

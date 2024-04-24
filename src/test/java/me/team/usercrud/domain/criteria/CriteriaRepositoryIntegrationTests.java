@@ -1,5 +1,6 @@
 package me.team.usercrud.domain.criteria;
 
+import me.team.usercrud.shared.domain.criteria.*;
 import me.team.usercrud.user.domain.User;
 import me.team.usercrud.domain.UserFactory;
 import me.team.usercrud.domain.UserRepository;

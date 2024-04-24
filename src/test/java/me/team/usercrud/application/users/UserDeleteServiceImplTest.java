@@ -1,9 +1,9 @@
 package me.team.usercrud.application.users;
 
 import lombok.val;
-import me.team.usercrud.application.user.UserDeleteService;
-import me.team.usercrud.application.user.exceptions.UserNotFoundException;
-import me.team.usercrud.application.user.impl.UserDeleteServiceImpl;
+import me.team.usercrud.user.application.UserDeleteService;
+import me.team.usercrud.user.application.exceptions.UserNotFoundException;
+import me.team.usercrud.user.application.impl.UserDeleteServiceImpl;
 import me.team.usercrud.user.domain.User;
 import org.junit.Test;
 import org.springframework.boot.test.context.SpringBootTest;

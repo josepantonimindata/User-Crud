@@ -1,9 +1,9 @@
 package me.team.usercrud.application.users;
 
 import lombok.val;
-import me.team.usercrud.application.user.UserUpdateService;
-import me.team.usercrud.application.user.exceptions.UserNotFoundException;
-import me.team.usercrud.application.user.impl.UserUpdateServiceImpl;
+import me.team.usercrud.user.application.UserUpdateService;
+import me.team.usercrud.user.application.exceptions.UserNotFoundException;
+import me.team.usercrud.user.application.impl.UserUpdateServiceImpl;
 import me.team.usercrud.user.domain.User;
 import org.junit.jupiter.api.Test;
 
