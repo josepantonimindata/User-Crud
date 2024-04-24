@@ -1,6 +1,6 @@
 package me.team.usercrud.application.users;
 
-import me.team.usercrud.domain.User;
+import me.team.usercrud.user.domain.User;
 import me.team.usercrud.domain.UserRepository;
 
 import java.util.List;

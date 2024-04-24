@@ -4,11 +4,9 @@ import lombok.val;
 import me.team.usercrud.application.user.UserFinderService;
 import me.team.usercrud.application.user.exceptions.UserNotFoundException;
 import me.team.usercrud.application.user.impl.UserFinderServiceImpl;
-import me.team.usercrud.domain.User;
+import me.team.usercrud.user.domain.User;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.UUID;
 

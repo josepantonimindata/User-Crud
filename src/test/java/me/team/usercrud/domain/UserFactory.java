@@ -1,5 +1,6 @@
 package me.team.usercrud.domain;
 
+import me.team.usercrud.user.domain.User;
 import net.bytebuddy.utility.RandomString;
 
 import java.util.ArrayList;

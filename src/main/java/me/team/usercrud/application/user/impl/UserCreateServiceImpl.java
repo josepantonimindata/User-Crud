@@ -3,7 +3,7 @@ package me.team.usercrud.application.user.impl;
 import lombok.AllArgsConstructor;
 import me.team.usercrud.application.user.UserCreateService;
 import me.team.usercrud.application.user.exceptions.UserAlreadyExistsException;
-import me.team.usercrud.domain.User;
+import me.team.usercrud.user.domain.User;
 import me.team.usercrud.domain.UserRepository;
 import org.springframework.stereotype.Service;
 

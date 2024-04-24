@@ -2,7 +2,7 @@ package me.team.usercrud.application.user.impl;
 
 import lombok.AllArgsConstructor;
 import me.team.usercrud.application.user.UserSearchService;
-import me.team.usercrud.domain.User;
+import me.team.usercrud.user.domain.User;
 import me.team.usercrud.domain.criteria.Criteria;
 import me.team.usercrud.domain.criteria.CriteriaRepository;
 import org.springframework.stereotype.Service;

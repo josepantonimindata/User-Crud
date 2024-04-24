@@ -1,5 +1,7 @@
 package me.team.usercrud.domain;
 
+import me.team.usercrud.user.domain.User;
+
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;

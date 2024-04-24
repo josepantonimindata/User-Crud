@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.val;
 import me.team.usercrud.application.user.UserUpdateService;
 import me.team.usercrud.application.user.exceptions.UserNotFoundException;
-import me.team.usercrud.domain.User;
+import me.team.usercrud.user.domain.User;
 import me.team.usercrud.domain.UserRepository;
 import org.springframework.stereotype.Service;
 

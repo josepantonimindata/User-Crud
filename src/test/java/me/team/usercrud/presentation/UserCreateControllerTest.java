@@ -2,7 +2,7 @@ package me.team.usercrud.presentation;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import me.team.usercrud.application.user.UserCreateService;
-import me.team.usercrud.domain.User;
+import me.team.usercrud.user.domain.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;

@@ -2,15 +2,11 @@ package me.team.usercrud.application.users;
 
 import lombok.val;
 import me.team.usercrud.application.user.UserDeleteService;
-import me.team.usercrud.application.user.exceptions.UserAlreadyExistsException;
 import me.team.usercrud.application.user.exceptions.UserNotFoundException;
 import me.team.usercrud.application.user.impl.UserDeleteServiceImpl;
-import me.team.usercrud.domain.User;
-import me.team.usercrud.domain.UserRepository;
+import me.team.usercrud.user.domain.User;
 import org.junit.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
 
 import java.util.UUID;
 

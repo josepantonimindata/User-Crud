@@ -1,7 +1,7 @@
 package me.team.usercrud.persistence;
 
 import jakarta.persistence.EntityManager;
-import me.team.usercrud.domain.User;
+import me.team.usercrud.user.domain.User;
 import me.team.usercrud.domain.criteria.Criteria;
 import me.team.usercrud.domain.criteria.CriteriaRepository;
 import org.springframework.stereotype.Repository;

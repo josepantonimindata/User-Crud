@@ -1,6 +1,7 @@
 package me.team.usercrud.domain;
 
 import lombok.val;
+import me.team.usercrud.user.domain.User;
 import org.junit.jupiter.api.Test;
 
 import java.util.UUID;

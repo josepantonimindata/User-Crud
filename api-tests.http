@@ -3,11 +3,11 @@ POST http://localhost:80/create
 Content-Type: application/json
 
 {
-  "id": "e49b2af6-c3d8-48f7-a7e5-f383f93ed900",
-  "name": "",
-  "surname": "",
-  "email": "",
-  "password": ""
+  "id": "e49b2af6-c3d8-48f7-a7e5-f383f93ed901",
+  "name": "Andreu2",
+  "surname": "Garcia",
+  "email": "test2@test.com",
+  "password": "hash"
 }
 
 ###
@@ -19,15 +19,15 @@ GET http://localhost:80/users/e49b2af6-c3d8-48f7-a7e5-f283f93ed900
 Content-Type: application/json
 
 ###
-PUT http://localhost:80/update/e49b2af6-c3d8-48f7-a7e5-f283f93ed900
+PUT http://localhost:80/update/1
 Content-Type: application/json
 
 {
-  "id": "e49b2af6-c3d8-48f7-a7e5-f283f93ed900",
+  "id": "e49b2af6-c3d8-48f7-a7e5-f383f93ed900",
   "name": "updated!",
-  "surname": "",
-  "email": "",
-  "password": ""
+  "surname": "aaaaaa",
+  "email": "bbbbb",
+  "password": "<<<<<<<"
 }
 
 ###

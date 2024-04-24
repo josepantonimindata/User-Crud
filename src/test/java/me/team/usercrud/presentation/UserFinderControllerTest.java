@@ -1,7 +1,7 @@
 package me.team.usercrud.presentation;
 
 import me.team.usercrud.application.user.UserFinderService;
-import me.team.usercrud.domain.User;
+import me.team.usercrud.user.domain.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
