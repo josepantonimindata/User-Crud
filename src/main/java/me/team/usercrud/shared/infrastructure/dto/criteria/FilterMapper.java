@@ -19,9 +19,9 @@ public class FilterMapper implements Mapper<FilterPrimitive, Filter> {
     @Override
     public FilterPrimitive to(Filter filter) {
         return new FilterPrimitive(
-            filter.getField().value(),
-            filter.getOperator().toString(),
-            filter.getValue().value()
+            filter.field().value(),
+            filter.operator().toString(),
+            filter.value().value()
         );
     }
 }

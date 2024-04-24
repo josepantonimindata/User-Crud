@@ -17,8 +17,8 @@ public class OrderMapper implements Mapper<OrderPrimitive, Order> {
     @Override
     public OrderPrimitive to(Order order) {
         return new OrderPrimitive(
-            order.getOrderBy().value(),
-            order.getOrderType().toString()
+            order.orderBy().value(),
+            order.orderType().toString()
         );
     }
 }

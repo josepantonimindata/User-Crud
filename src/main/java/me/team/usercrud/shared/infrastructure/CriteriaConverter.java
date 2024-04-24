@@ -29,11 +29,11 @@ public final class CriteriaConverter<T> {
         CriteriaQuery<T> criteriaQuery = builder.createQuery(aggregateClass);
         Root<T> root = criteriaQuery.from(aggregateClass);
 
-        criteriaQuery.where(formatPredicates(criteria.getFilters().getFilters(), root));
+        criteriaQuery.where(formatPredicates(criteria.filters().filters(), root));
 
-        if (criteria.getOrder().hasOrder()) {
-            Path<Object> orderBy = root.get(criteria.getOrder().getOrderBy().value());
-            Order order = criteria.getOrder().getOrderType().isAsc() ? builder.asc(orderBy) : builder.desc(orderBy);
+        if (criteria.order().hasOrder()) {
+            Path<Object> orderBy = root.get(criteria.order().orderBy().value());
+            Order order = criteria.order().orderType().isAsc() ? builder.asc(orderBy) : builder.desc(orderBy);
 
             criteriaQuery.orderBy(order);
         }
@@ -51,32 +51,32 @@ public final class CriteriaConverter<T> {
     }
 
     private Predicate formatPredicate(Filter filter, Root<T> root) {
-        BiFunction<Filter, Root<T>, Predicate> transformer = predicateTransformers.get(filter.getOperator());
+        BiFunction<Filter, Root<T>, Predicate> transformer = predicateTransformers.get(filter.operator());
 
         return transformer.apply(filter, root);
     }
 
     private Predicate equalsPredicateTransformer(Filter filter, Root<T> root) {
-        return builder.equal(root.get(filter.getField().value()), filter.getValue().value());
+        return builder.equal(root.get(filter.field().value()), filter.value().value());
     }
 
     private Predicate notEqualsPredicateTransformer(Filter filter, Root<T> root) {
-        return builder.notEqual(root.get(filter.getField().value()), filter.getValue().value());
+        return builder.notEqual(root.get(filter.field().value()), filter.value().value());
     }
 
     private Predicate greaterThanPredicateTransformer(Filter filter, Root<T> root) {
-        return builder.greaterThan(root.get(filter.getField().value()), filter.getValue().value());
+        return builder.greaterThan(root.get(filter.field().value()), filter.value().value());
     }
 
     private Predicate lowerThanPredicateTransformer(Filter filter, Root<T> root) {
-        return builder.lessThan(root.get(filter.getField().value()), filter.getValue().value());
+        return builder.lessThan(root.get(filter.field().value()), filter.value().value());
     }
 
     private Predicate containsPredicateTransformer(Filter filter, Root<T> root) {
-        return builder.like(root.get(filter.getField().value()), String.format("%%%s%%", filter.getValue().value()));
+        return builder.like(root.get(filter.field().value()), String.format("%%%s%%", filter.value().value()));
     }
 
     private Predicate notContainsPredicateTransformer(Filter filter, Root<T> root) {
-        return builder.notLike(root.get(filter.getField().value()), String.format("%%%s%%", filter.getValue().value()));
+        return builder.notLike(root.get(filter.field().value()), String.format("%%%s%%", filter.value().value()));
     }
 }

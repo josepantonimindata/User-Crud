@@ -20,10 +20,10 @@ public class CriteriaMapper implements Mapper<CriteriaPrimitive, Criteria> {
     public Criteria from(CriteriaPrimitive criteriaPrimitive) {
         var criteria = Criteria.none();
 
-        criteria.setFilters(new Filters(criteriaPrimitive.getFilters().stream().map(filterMapper::from).toList()));
+        criteria.filters(new Filters(criteriaPrimitive.getFilters().stream().map(filterMapper::from).toList()));
 
         if (criteriaPrimitive.hasOrder()) {
-            criteria.setOrder(orderMapper.from(criteriaPrimitive.getOrder()));
+            criteria.order(orderMapper.from(criteriaPrimitive.getOrder()));
         }
 
         return criteria;
@@ -32,8 +32,8 @@ public class CriteriaMapper implements Mapper<CriteriaPrimitive, Criteria> {
     @Override
     public CriteriaPrimitive to(Criteria criteria) {
         return new CriteriaPrimitive(
-            criteria.getFilters().getFilters().stream().map(filterMapper::to).toList(),
-            orderMapper.to(criteria.getOrder())
+            criteria.filters().filters().stream().map(filterMapper::to).toList(),
+            orderMapper.to(criteria.order())
         );
     }
 }

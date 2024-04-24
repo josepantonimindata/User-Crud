@@ -31,38 +31,33 @@ public class Criteria {
         return filters != null && !filters.isEmpty();
     }
 
-    public Filters getFilters()             {return this.filters;}
+    public Filters filters()             {return this.filters;}
 
-    public void setFilters(Filters filters) {this.filters = filters;}
+    public void filters(Filters filters) {this.filters = filters;}
 
-    public Order getOrder()                 {return this.order;}
+    public Order order()                 {return this.order;}
 
-    public void setOrder(Order order)       {this.order = order;}
+    public void order(Order order)       {this.order = order;}
 
-    public boolean equals(final Object o) {
-        if (o == this) return true;
-        if (!(o instanceof Criteria other)) return false;
-        if (!other.canEqual(this)) return false;
-        final Object this$filters = this.getFilters();
-        final Object other$filters = other.getFilters();
-        if (!Objects.equals(this$filters, other$filters)) return false;
-        final Object this$order = this.getOrder();
-        final Object other$order = other.getOrder();
-        return Objects.equals(this$order, other$order);
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Criteria criteria = (Criteria) o;
+        return Objects.equals(filters, criteria.filters) && Objects.equals(order, criteria.order);
     }
 
-    protected boolean canEqual(final Object other) {return other instanceof Criteria;}
-
+    @Override
     public int hashCode() {
-        final int PRIME = 59;
-        int result = 1;
-        final Object $filters = this.getFilters();
-        result = result * PRIME + ($filters == null ? 43 : $filters.hashCode());
-        final Object $order = this.getOrder();
-        result = result * PRIME + ($order == null ? 43 : $order.hashCode());
-        return result;
+        return Objects.hash(filters, order);
     }
 
-    public String toString() {return "Criteria(filters=" + this.getFilters() + ", order=" + this.getOrder() + ")";}
+    @Override
+    public String toString() {
+        return "Criteria{" +
+            "filters=" + filters +
+            ", order=" + order +
+            '}';
+    }
 }
 

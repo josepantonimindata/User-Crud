@@ -27,39 +27,34 @@ public class Order {
         return !orderType.isNone();
     }
 
-    public OrderBy getOrderBy()                   {return this.orderBy;}
+    public OrderBy orderBy()                   {return this.orderBy;}
 
-    public void setOrderBy(OrderBy orderBy)       {this.orderBy = orderBy;}
+    public void orderBy(OrderBy orderBy)       {this.orderBy = orderBy;}
 
-    public OrderType getOrderType()               {return this.orderType;}
+    public OrderType orderType()               {return this.orderType;}
 
-    public void setOrderType(OrderType orderType) {this.orderType = orderType;}
+    public void orderType(OrderType orderType) {this.orderType = orderType;}
 
-    public boolean equals(final Object o) {
-        if (o == this) return true;
-        if (!(o instanceof Order other)) return false;
-        if (!other.canEqual(this)) return false;
-        final Object this$orderBy = this.getOrderBy();
-        final Object other$orderBy = other.getOrderBy();
-        if (!Objects.equals(this$orderBy, other$orderBy)) return false;
-        final Object this$orderType = this.getOrderType();
-        final Object other$orderType = other.getOrderType();
-        return Objects.equals(this$orderType, other$orderType);
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Order order = (Order) o;
+        return Objects.equals(orderBy, order.orderBy) && orderType == order.orderType;
     }
 
-    protected boolean canEqual(final Object other) {return other instanceof Order;}
-
+    @Override
     public int hashCode() {
-        final int PRIME = 59;
-        int result = 1;
-        final Object $orderBy = this.getOrderBy();
-        result = result * PRIME + ($orderBy == null ? 43 : $orderBy.hashCode());
-        final Object $orderType = this.getOrderType();
-        result = result * PRIME + ($orderType == null ? 43 : $orderType.hashCode());
-        return result;
+        return Objects.hash(orderBy, orderType);
     }
 
-    public String toString() {return "Order(orderBy=" + this.getOrderBy() + ", orderType=" + this.getOrderType() + ")";}
+    @Override
+    public String toString() {
+        return "Order{" +
+            "orderBy=" + orderBy +
+            ", orderType=" + orderType +
+            '}';
+    }
 }
 
 
