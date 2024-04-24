@@ -1,4 +1,4 @@
-package me.team.usercrud.user.infrastructure;
+package me.team.usercrud.user.infrastructure.hibernate;
 
 import me.team.usercrud.shared.domain.Mapper;
 import me.team.usercrud.user.domain.User;

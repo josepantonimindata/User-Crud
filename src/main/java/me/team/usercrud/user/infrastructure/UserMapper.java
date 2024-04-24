@@ -2,6 +2,7 @@ package me.team.usercrud.user.infrastructure;
 
 import me.team.usercrud.shared.domain.Mapper;
 import me.team.usercrud.user.domain.*;
+import me.team.usercrud.user.infrastructure.hibernate.UserEntity;
 import org.springframework.stereotype.Component;
 
 @Component
