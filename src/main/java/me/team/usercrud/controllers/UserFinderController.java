@@ -5,6 +5,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import lombok.AllArgsConstructor;
 import me.team.usercrud.user.application.finduser.UserFinderService;
 import me.team.usercrud.user.domain.User;
+import me.team.usercrud.user.domain.UserId;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -34,7 +35,7 @@ public class UserFinderController {
     )
     @GetMapping("/users/{id}")
     public User getUser(@PathVariable String id) {
-        return userFinderService.findUser(UUID.fromString(id));
+        return userFinderService.findUser(new UserId(id));
     }
 
     @GetMapping("/users")

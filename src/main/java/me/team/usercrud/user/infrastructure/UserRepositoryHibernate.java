@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public final class UserRepositoryHibernate implements UserRepository {
+public class UserRepositoryHibernate implements UserRepository {
     private final UserEntityRepository userEntityRepository;
     private final Mapper<User, UserEntity> userMapper;
 

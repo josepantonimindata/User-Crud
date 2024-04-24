@@ -5,6 +5,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import lombok.AllArgsConstructor;
 import me.team.usercrud.user.application.deleteuser.UserDeleteService;
 import me.team.usercrud.user.domain.User;
+import me.team.usercrud.user.domain.UserId;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -34,7 +35,7 @@ public class UserDeleteController {
     )
     @DeleteMapping("/delete/{id}")
     public void deleteUserById(@PathVariable String id) {
-        userDeleteService.deleteUserById(UUID.fromString(id));
+        userDeleteService.deleteUserById(new UserId(id));
     }
 
     @DeleteMapping("/deleteUser")
