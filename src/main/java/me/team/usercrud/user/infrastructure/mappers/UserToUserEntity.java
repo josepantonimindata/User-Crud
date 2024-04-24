@@ -6,7 +6,7 @@ import me.team.usercrud.user.infrastructure.hibernate.UserEntity;
 import org.springframework.stereotype.Component;
 
 @Component
-public final class UserMapper implements Mapper<User, UserEntity> {
+public final class UserToUserEntity implements Mapper<User, UserEntity> {
 
     @Override
     public UserEntity from(User user) {
