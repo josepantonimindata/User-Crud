@@ -23,6 +23,16 @@ public final class User extends AggregateRoot {
         this.lastEditTime = lastEditTime;
     }
 
+    public User(String userId, String userName, String userSurname, String userEmail, String userPassword, String userCreationTime, String userLastEditTime) {
+        this(new UserId(userId),
+                new UserName(userName),
+                new UserSurname(userSurname),
+                new UserEmail(userEmail),
+                new UserPassword(userPassword),
+                new UserCreationTime(userCreationTime),
+                new UserLastEditTime(userLastEditTime));
+    }
+
     public static User create(UserId id, UserName name, UserSurname surname, UserEmail email, UserPassword password) {
         // Todo: record event of user created
         return new User(id, name, surname, email, password, UserCreationTime.now(), UserLastEditTime.now());

@@ -9,9 +9,9 @@ spring:
     property-naming-strategy: SNAKE_CASE
   datasource:
     driver-class-name: org.postgresql.Driver
-#    url: jdbc:postgresql://localhost:5432/users
-#    username: user-crud
-#    password: user-crud
+    url: jdbc:postgresql://localhost:5432/users
+    username: user-crud
+    password: user-crud
   jpa:
     hibernate:
       ddl-auto: update

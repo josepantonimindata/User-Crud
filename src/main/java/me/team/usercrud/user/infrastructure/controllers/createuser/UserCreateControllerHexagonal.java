@@ -16,7 +16,7 @@ public class UserCreateControllerHexagonal {
 
     private final UserCreateService userCreateService;
 
-    public UserCreateController(UserCreateService userCreateService) {this.userCreateService = userCreateService;}
+    public UserCreateControllerHexagonal(UserCreateService userCreateService) {this.userCreateService = userCreateService;}
 
     @Operation(
         description = "Create a new User, the user ID field must be unique and with UUID format",

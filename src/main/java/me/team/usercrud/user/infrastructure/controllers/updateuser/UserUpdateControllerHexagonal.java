@@ -2,7 +2,6 @@ package me.team.usercrud.user.infrastructure.controllers.updateuser;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import lombok.AllArgsConstructor;
 import me.team.usercrud.user.application.updateuser.UserUpdateService;
 import me.team.usercrud.user.domain.*;
 import me.team.usercrud.user.infrastructure.controllers.UserRequest;
@@ -11,10 +10,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@AllArgsConstructor
 public class UserUpdateControllerHexagonal {
 
-    private UserUpdateService userUpdateService;
+    private final UserUpdateService userUpdateService;
+
+    public UserUpdateControllerHexagonal(UserUpdateService userUpdateService) {
+        this.userUpdateService = userUpdateService;
+    }
 
     @Operation(
         description = "Update a User",

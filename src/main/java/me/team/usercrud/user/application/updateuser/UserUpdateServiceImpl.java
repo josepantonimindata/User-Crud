@@ -1,18 +1,18 @@
 package me.team.usercrud.user.application.updateuser;
 
-import lombok.AllArgsConstructor;
-import lombok.val;
-import me.team.usercrud.user.application.updateuser.UserUpdateService;
 import me.team.usercrud.user.application.exceptions.UserNotFoundException;
 import me.team.usercrud.user.domain.*;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 
-@AllArgsConstructor
 @Service
 public class UserUpdateServiceImpl implements UserUpdateService {
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
+
+    public UserUpdateServiceImpl(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     @Override
     public User updateUser(UserId id, UserName name, UserSurname surname, UserEmail email, UserPassword password) {

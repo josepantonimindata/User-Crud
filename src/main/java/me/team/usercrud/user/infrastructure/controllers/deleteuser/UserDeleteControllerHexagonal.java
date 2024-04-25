@@ -2,20 +2,20 @@ package me.team.usercrud.user.infrastructure.controllers.deleteuser;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import lombok.AllArgsConstructor;
 import me.team.usercrud.user.application.deleteuser.UserDeleteService;
-import me.team.usercrud.user.domain.User;
 import me.team.usercrud.user.domain.UserId;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@AllArgsConstructor
 public class UserDeleteControllerHexagonal {
 
     private UserDeleteService userDeleteService;
+
+    public UserDeleteControllerHexagonal(UserDeleteService userDeleteService) {
+        this.userDeleteService = userDeleteService;
+    }
 
     @Operation(
         description = "Delete a User by ID",
