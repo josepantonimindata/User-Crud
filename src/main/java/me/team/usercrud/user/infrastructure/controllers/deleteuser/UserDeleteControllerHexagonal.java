@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class UserDeleteControllerHexagonal {
 
-    private UserDeleteService userDeleteService;
+    private final UserDeleteService userDeleteService;
 
     public UserDeleteControllerHexagonal(UserDeleteService userDeleteService) {
         this.userDeleteService = userDeleteService;
@@ -33,6 +33,6 @@ public class UserDeleteControllerHexagonal {
     )
     @DeleteMapping("/hexagonal/delete/{id}")
     public void deleteUserById(@PathVariable String id) {
-        userDeleteService.deleteUserById(new UserId(id));
+        userDeleteService.deleteUserById(id);
     }
 }

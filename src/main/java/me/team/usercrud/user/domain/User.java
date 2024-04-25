@@ -34,11 +34,6 @@ public final class User extends AggregateRoot {
                 new UserLastEditTime(userLastEditTime));
     }
 
-    public static User create(UserId id, UserName name, UserSurname surname, UserEmail email, UserPassword password) {
-        // Todo: record event of user created
-        return new User(id, name, surname, email, password, UserCreationTime.now(), UserLastEditTime.now());
-    }
-
     public static User create(String userId, String userName, String userSurname, String userEmail, String userPassword) {
         return new User(userId, userName, userSurname, userEmail, userPassword, DatetimeUtils.getNowTimeInString(), DatetimeUtils.getNowTimeInString());
     }
