@@ -20,4 +20,15 @@ public class UserCreateServiceImpl implements UserCreateService {
         }
         return userRepository.save(user);
     }
+
+    @Override
+    public User createUser(String userId, String userName, String userSurname, String userEmail, String userPassword) {
+        return createUser(
+                new UserId(userId),
+                new UserName(userName),
+                new UserSurname(userSurname),
+                new UserEmail(userEmail),
+                new UserPassword(userPassword)
+        );
+    }
 }
