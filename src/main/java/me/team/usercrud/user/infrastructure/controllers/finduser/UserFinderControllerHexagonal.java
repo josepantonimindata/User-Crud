@@ -36,13 +36,11 @@ public class UserFinderControllerHexagonal {
     )
     @GetMapping("/hexagonal/users/{id}")
     public User getUser(@PathVariable String id) {
-        return userFinderService.findUser(new UserId(id));
+        return userFinderService.findUser(id);
     }
 
     @GetMapping("/hexagonal/users")
     public List<User> findAll() {
         return userFinderService.findAll();
     }
-
-
 }

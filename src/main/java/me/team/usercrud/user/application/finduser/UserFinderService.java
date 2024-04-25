@@ -17,19 +17,22 @@ public class UserFinderService {
         this.userRepository = userRepository;
     }
 
-    public User findUser(UserId id) {
-        if (!userRepository.existsById(id)) {
-            throw new UserNotFoundException(id);
-        }
-        return userRepository.findById(id).get();
+    public User findUser(String id) {
+
+//        if (!userRepository.existsById(id)) {
+//            throw new UserNotFoundException(id);
+//        }
+//        return userRepository.findById(id).get();
+        return null;
     }
 
     public List<User> findAll() {
-        var users = userRepository.findAll();
-        if (users == null) {
-            users = new ArrayList<>();
-        }
-
-        return users;
+//        var users = userRepository.findAll();
+//        if (users == null) {
+//            users = new ArrayList<>();
+//        }
+//
+//        return users;
+        return null;
     }
 }

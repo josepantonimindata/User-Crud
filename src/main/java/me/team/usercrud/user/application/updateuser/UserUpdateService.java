@@ -14,13 +14,17 @@ public class UserUpdateService {
         this.userRepository = userRepository;
     }
 
-    public User updateUser(UserId id, UserName name, UserSurname surname, UserEmail email, UserPassword password) {
-        var oldUser = userRepository.findById(id);
-        if (oldUser.isEmpty()) {
-            throw new UserNotFoundException(id);
-        }
-        var creationDate = oldUser.get().creationTime();
-        var userLastEditTime = new UserLastEditTime(LocalDateTime.now().toString());
-        return userRepository.save(new User(id, name, surname, email, password, creationDate, userLastEditTime));
+    /**
+     * @throws UserNotFoundException
+     * */
+    public User updateUser(String userId, String userName, String userSurname, String userEmail, String userPassword) {
+//        var oldUser = userRepository.findById(id);
+//        if (oldUser.isEmpty()) {
+//            throw new UserNotFoundException(id);
+//        }
+//        var creationDate = oldUser.get().creationTime();
+//        var userLastEditTime = new UserLastEditTime(LocalDateTime.now().toString());
+//        return userRepository.save(new User(id, name, surname, email, password, creationDate, userLastEditTime));
+        return null;
     }
 }

@@ -35,14 +35,11 @@ public class UserUpdateControllerHexagonal {
     @PutMapping("/hexagonal/update/{id}")
     public void updateUser(@RequestBody UserRequest user) {
         User updatedUser = userUpdateService.updateUser(
-                new UserId(user.id()),
-                new UserName(user.name()),
-                new UserSurname(user.surname()),
-                new UserEmail(user.email()),
-                new UserPassword(user.password())
+                user.id(),
+                user.name(),
+                user.surname(),
+                user.email(),
+                user.password()
         );
-
-        System.out.println("User updated: " + updatedUser);
     }
-
 }
