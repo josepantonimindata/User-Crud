@@ -1,5 +1,6 @@
 package me.team.usercrud.user.infrastructure.controllers.handlers;
 
+import me.team.usercrud.user.application.exceptions.IllegalCriteriaArgumentsException;
 import me.team.usercrud.user.application.exceptions.UserAlreadyExistsException;
 import me.team.usercrud.user.application.exceptions.UserNotFoundException;
 import org.springframework.http.HttpStatus;
@@ -28,5 +29,12 @@ public class UserExceptionHandler {
     public ResponseEntity<ProblemDetail> handleUserAlreadyExistsException(UserAlreadyExistsException ex) {
         ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(HttpStatus.CONFLICT, ex.getMessage());
         return new ResponseEntity<>(problemDetail, HttpStatus.CONFLICT);
+    }
+
+    @ExceptionHandler(IllegalCriteriaArgumentsException.class)
+    public ResponseEntity<ProblemDetail> handleGenericException(IllegalCriteriaArgumentsException ex) {
+        System.out.println("!Caught!");
+        ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST, ex.getMessage());
+        return new ResponseEntity<>(problemDetail, HttpStatus.BAD_REQUEST);
     }
 }

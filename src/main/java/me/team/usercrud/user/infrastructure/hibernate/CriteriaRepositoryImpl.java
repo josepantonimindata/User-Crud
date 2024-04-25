@@ -1,6 +1,7 @@
 package me.team.usercrud.user.infrastructure.hibernate;
 
 import jakarta.persistence.EntityManager;
+import me.team.usercrud.shared.domain.Mapper;
 import me.team.usercrud.shared.domain.criteria.Criteria;
 import me.team.usercrud.shared.domain.criteria.CriteriaRepository;
 import me.team.usercrud.shared.infrastructure.hibernate.CriteriaConverter;
@@ -13,18 +14,20 @@ import java.util.List;
 public class CriteriaRepositoryImpl implements CriteriaRepository<User> {
 
     private final EntityManager em;
-    private final CriteriaConverter<User> userCriteriaConverter;
+    private final CriteriaConverter<UserEntity> userCriteriaConverter;
+    private final Mapper<UserEntity, User> entityUserMapper;
 
-    public CriteriaRepositoryImpl(EntityManager em) {
+    public CriteriaRepositoryImpl(EntityManager em, Mapper<UserEntity, User> entityUserMapper) {
         this.em = em;
         userCriteriaConverter = new CriteriaConverter<>(em.getCriteriaBuilder());
+        this.entityUserMapper = entityUserMapper;
     }
 
 
     @Override
     public List<User> search(Criteria criteria) {
-        var criteriaQuery = userCriteriaConverter.convert(criteria, User.class);
+        var criteriaQuery = userCriteriaConverter.convert(criteria, UserEntity.class);
 
-        return em.createQuery(criteriaQuery).getResultList();
+        return em.createQuery(criteriaQuery).getResultList().stream().map(entityUserMapper::from).toList();
     }
 }

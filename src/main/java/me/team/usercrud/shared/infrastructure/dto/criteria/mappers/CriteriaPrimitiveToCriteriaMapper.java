@@ -1,18 +1,21 @@
-package me.team.usercrud.shared.infrastructure.dto.criteria;
+package me.team.usercrud.shared.infrastructure.dto.criteria.mappers;
 
 import me.team.usercrud.shared.domain.Mapper;
 import me.team.usercrud.shared.domain.criteria.Criteria;
 import me.team.usercrud.shared.domain.criteria.Filter;
 import me.team.usercrud.shared.domain.criteria.Filters;
 import me.team.usercrud.shared.domain.criteria.Order;
+import me.team.usercrud.shared.infrastructure.dto.criteria.CriteriaPrimitive;
+import me.team.usercrud.shared.infrastructure.dto.criteria.FilterPrimitive;
+import me.team.usercrud.shared.infrastructure.dto.criteria.OrderPrimitive;
 import org.springframework.stereotype.Component;
 
 @Component
-public class CriteriaMapper implements Mapper<CriteriaPrimitive, Criteria> {
+public class CriteriaPrimitiveToCriteriaMapper implements Mapper<CriteriaPrimitive, Criteria> {
     private final Mapper<FilterPrimitive, Filter> filterMapper;
     private final Mapper<OrderPrimitive, Order> orderMapper;
 
-    public CriteriaMapper(Mapper<FilterPrimitive, Filter> filterMapper, Mapper<OrderPrimitive, Order> orderMapper) {
+    public CriteriaPrimitiveToCriteriaMapper(Mapper<FilterPrimitive, Filter> filterMapper, Mapper<OrderPrimitive, Order> orderMapper) {
         this.filterMapper = filterMapper;
         this.orderMapper = orderMapper;
     }

@@ -2,6 +2,7 @@ package me.team.usercrud.user.application.searchuser;
 
 import me.team.usercrud.shared.domain.criteria.Criteria;
 import me.team.usercrud.shared.domain.criteria.CriteriaRepository;
+import me.team.usercrud.user.application.exceptions.IllegalCriteriaArgumentsException;
 import me.team.usercrud.user.domain.User;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +18,10 @@ public class UserSearchService {
     }
 
     public List<User> search(Criteria criteria) {
-        return userCriteriaRepository.search(criteria);
+        try {return userCriteriaRepository.search(criteria);} catch (Exception e) {
+
+
+            throw new IllegalCriteriaArgumentsException(e.getMessage());
+        }
     }
 }

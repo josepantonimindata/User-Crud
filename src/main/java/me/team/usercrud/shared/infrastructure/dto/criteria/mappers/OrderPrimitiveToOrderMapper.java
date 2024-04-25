@@ -1,13 +1,14 @@
-package me.team.usercrud.shared.infrastructure.dto.criteria;
+package me.team.usercrud.shared.infrastructure.dto.criteria.mappers;
 
 import me.team.usercrud.shared.domain.Mapper;
 import me.team.usercrud.shared.domain.criteria.Order;
 import me.team.usercrud.shared.domain.criteria.OrderBy;
 import me.team.usercrud.shared.domain.criteria.OrderType;
+import me.team.usercrud.shared.infrastructure.dto.criteria.OrderPrimitive;
 import org.springframework.stereotype.Component;
 
 @Component
-public class OrderMapper implements Mapper<OrderPrimitive, Order> {
+public class OrderPrimitiveToOrderMapper implements Mapper<OrderPrimitive, Order> {
 
     @Override
     public Order from(OrderPrimitive orderPrimitive) {

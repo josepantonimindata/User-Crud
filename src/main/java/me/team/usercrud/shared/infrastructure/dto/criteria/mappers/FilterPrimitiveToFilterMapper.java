@@ -1,12 +1,13 @@
-package me.team.usercrud.shared.infrastructure.dto.criteria;
+package me.team.usercrud.shared.infrastructure.dto.criteria.mappers;
 
 import me.team.usercrud.shared.domain.Mapper;
 import me.team.usercrud.shared.domain.criteria.Filter;
 import me.team.usercrud.shared.domain.criteria.FilterOperator;
+import me.team.usercrud.shared.infrastructure.dto.criteria.FilterPrimitive;
 import org.springframework.stereotype.Component;
 
 @Component
-public class FilterMapper implements Mapper<FilterPrimitive, Filter> {
+public class FilterPrimitiveToFilterMapper implements Mapper<FilterPrimitive, Filter> {
     @Override
     public Filter from(FilterPrimitive filterPrimitive) {
         return Filter.from(
