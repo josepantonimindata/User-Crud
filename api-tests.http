@@ -1,5 +1,5 @@
 ###
-POST http://localhost:80/create
+POST http://localhost/users
 Content-Type: application/json
 
 {
@@ -11,7 +11,7 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:8080/hexagonal/users
+GET http://localhost/users
 Content-Type: application/json
 
 ###
@@ -47,7 +47,8 @@ Content-Type: application/json
 }
 
 ###
-GET localhost/users/search?order.orderBy=name&order.orderType=DESC&filters[0].field=name&filters[0].operator=GT&filters[0].value=value1&filters[1].field=email&filters[1].operator=EQUAL&filters[1].value=value2
+GET localhost/users/search?order.orderBy=name&order.orderType=DESC&filters[0].field=name&filters[0].operator=GT&
+    filters[0].value=value1&filters[1].field=email&filters[1].operator=EQUAL&filters[1].value=value2
 
 ###
 GET localhost/users/search

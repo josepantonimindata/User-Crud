@@ -6,7 +6,7 @@ import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public final class DatetimeUtils {
+public final class DateTimeUtils {
     @NonNull
     public static String getNowTimeInString() {
         return LocalDateTime.now().toString();

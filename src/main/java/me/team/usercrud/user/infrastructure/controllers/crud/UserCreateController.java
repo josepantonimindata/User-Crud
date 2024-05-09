@@ -34,11 +34,11 @@ public class UserCreateController {
             )
         }
     )
-    @PostMapping("/hexagonal/create")
+    @PostMapping("/users")
     @ResponseStatus(HttpStatus.CREATED)
     public void createUser(@RequestBody UserRequest user) {
         userCreateService.createUser(
-            new UserId(user.id()),
+            new UserId(user.id().toString()),
             new UserName(user.name()),
             new UserSurname(user.surname()),
             new UserEmail(user.email()),

@@ -4,7 +4,7 @@ import me.team.usercrud.shared.domain.AggregateRoot;
 
 import java.util.Objects;
 
-import static me.team.usercrud.shared.domain.services.DatetimeUtils.getNowTimeInString;
+import static me.team.usercrud.shared.domain.services.DateTimeUtils.getNowTimeInString;
 
 public final class User extends AggregateRoot {
     private final UserId id;

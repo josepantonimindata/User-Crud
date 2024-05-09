@@ -32,7 +32,7 @@ public class UserDeleteController {
             )
         }
     )
-    @DeleteMapping("/hexagonal/delete/{id}")
+    @DeleteMapping("/users/{id}")
     public void deleteUserById(@PathVariable UUID id) {
         userDeleteService.deleteUserById(id.toString());
     }

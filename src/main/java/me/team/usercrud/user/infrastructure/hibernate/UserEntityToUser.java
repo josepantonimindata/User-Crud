@@ -14,7 +14,7 @@ public final class UserEntityToUser implements Mapper<UserEntity, User> {
     @Override
     public User from(@NonNull UserEntity userEntity) {
         return new User(
-            new UserId(userEntity.id().toString()),
+            new UserId(userEntity.id()),
             new UserName(userEntity.name()),
             new UserSurname(userEntity.surname()),
             new UserEmail(userEntity.email()),
@@ -27,7 +27,7 @@ public final class UserEntityToUser implements Mapper<UserEntity, User> {
     @Override
     public UserEntity to(@NonNull User user) {
         return new UserEntity(
-            UUID.fromString(user.id().value()),
+            user.id().value(),
             user.name().value(),
             user.surname().value(),
             user.email().value(),
