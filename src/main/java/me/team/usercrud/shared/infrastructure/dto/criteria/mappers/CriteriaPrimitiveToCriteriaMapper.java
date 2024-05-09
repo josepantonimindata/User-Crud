@@ -22,8 +22,10 @@ public class CriteriaPrimitiveToCriteriaMapper implements Mapper<CriteriaPrimiti
 
     public Criteria from(CriteriaPrimitive criteriaPrimitive) {
         var criteria = Criteria.none();
-
-        criteria.filters(new Filters(criteriaPrimitive.getFilters().stream().map(filterMapper::from).toList()));
+        
+        if (criteriaPrimitive.getFilters() != null) {
+            criteria.filters(new Filters(criteriaPrimitive.getFilters().stream().map(filterMapper::from).toList()));
+        }
 
         if (criteriaPrimitive.hasOrder()) {
             criteria.order(orderMapper.from(criteriaPrimitive.getOrder()));

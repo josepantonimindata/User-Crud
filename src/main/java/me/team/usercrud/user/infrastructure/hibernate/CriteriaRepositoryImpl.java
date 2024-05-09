@@ -23,7 +23,6 @@ public class CriteriaRepositoryImpl implements CriteriaRepository<User> {
         this.entityUserMapper = entityUserMapper;
     }
 
-
     @Override
     public List<User> search(Criteria criteria) {
         var criteriaQuery = userCriteriaConverter.convert(criteria, UserEntity.class);
