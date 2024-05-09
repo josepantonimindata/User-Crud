@@ -8,6 +8,7 @@ import me.team.usercrud.shared.domain.criteria.Order;
 import me.team.usercrud.shared.infrastructure.dto.criteria.CriteriaPrimitive;
 import me.team.usercrud.shared.infrastructure.dto.criteria.FilterPrimitive;
 import me.team.usercrud.shared.infrastructure.dto.criteria.OrderPrimitive;
+import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -20,7 +21,7 @@ public class CriteriaPrimitiveToCriteriaMapper implements Mapper<CriteriaPrimiti
         this.orderMapper = orderMapper;
     }
 
-    public Criteria from(CriteriaPrimitive criteriaPrimitive) {
+    public Criteria from(@NonNull CriteriaPrimitive criteriaPrimitive) {
         var criteria = Criteria.none();
         
         if (criteriaPrimitive.getFilters() != null) {
@@ -35,7 +36,7 @@ public class CriteriaPrimitiveToCriteriaMapper implements Mapper<CriteriaPrimiti
     }
 
     @Override
-    public CriteriaPrimitive to(Criteria criteria) {
+    public CriteriaPrimitive to(@NonNull Criteria criteria) {
         return new CriteriaPrimitive(
             criteria.filters().filters().stream().map(filterMapper::to).toList(),
             orderMapper.to(criteria.order())

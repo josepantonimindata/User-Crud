@@ -3,6 +3,7 @@ package me.team.usercrud.shared.infrastructure.dto.criteria.mappers;
 import me.team.usercrud.shared.domain.Mapper;
 import me.team.usercrud.shared.domain.criteria.Order;
 import me.team.usercrud.shared.infrastructure.dto.criteria.OrderPrimitive;
+import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -15,12 +16,12 @@ public class OrderToOrderPrimitiveMapper implements Mapper<Order, OrderPrimitive
     }
 
     @Override
-    public OrderPrimitive from(Order fromType) {
+    public OrderPrimitive from(@NonNull Order fromType) {
         return mapper.to(fromType);
     }
 
     @Override
-    public Order to(OrderPrimitive toType) {
+    public Order to(@NonNull OrderPrimitive toType) {
         return mapper.from(toType);
     }
 }

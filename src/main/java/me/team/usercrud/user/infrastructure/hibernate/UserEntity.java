@@ -6,12 +6,13 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 import java.util.Objects;
+import java.util.UUID;
 
 @Entity
 @Table(name = "users")
 public final class UserEntity {
     @Id
-    private String id;
+    private UUID id;
     private String name;
     private String surname;
     private String email;
@@ -19,7 +20,7 @@ public final class UserEntity {
     private String creationTime;
     private String lastEditTime;
 
-    public UserEntity(String id, String name, String surname, String email, String password, String creationTime, String lastEditTime) {
+    public UserEntity(UUID id, String name, String surname, String email, String password, String creationTime, String lastEditTime) {
         this.id = id;
         this.name = name;
         this.surname = surname;
@@ -35,11 +36,11 @@ public final class UserEntity {
         return new UserEntityBuilder();
     }
 
-    public String id() {
+    public UUID id() {
         return id;
     }
 
-    public void id(String id) {
+    public void id(UUID id) {
         this.id = id;
     }
 
@@ -105,7 +106,7 @@ public final class UserEntity {
     }
 
     public static class UserEntityBuilder {
-        private String id;
+        private UUID id;
         private String name;
         private String surname;
         private String email;
@@ -115,7 +116,7 @@ public final class UserEntity {
 
         UserEntityBuilder() {}
 
-        public UserEntityBuilder id(String id) {
+        public UserEntityBuilder id(UUID id) {
             this.id = id;
             return this;
         }

@@ -11,28 +11,28 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 
 @ControllerAdvice
 public class UserExceptionHandler {
-
+    
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<ProblemDetail> handleGenericException(Exception ex) {
-        ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(HttpStatus.INTERNAL_SERVER_ERROR, ex.getMessage());
+    public ResponseEntity<ProblemDetail> handleGeneralException(Exception ex) {
+        ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(HttpStatus.INTERNAL_SERVER_ERROR,
+            ex.getMessage());
         return new ResponseEntity<>(problemDetail, HttpStatus.INTERNAL_SERVER_ERROR);
     }
-
+    
     @ExceptionHandler(UserNotFoundException.class)
     public ResponseEntity<ProblemDetail> handleUserNotFoundException(UserNotFoundException ex) {
         ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(HttpStatus.NOT_FOUND, ex.getMessage());
         return new ResponseEntity<>(problemDetail, HttpStatus.NOT_FOUND);
     }
-
-
+    
     @ExceptionHandler(UserAlreadyExistsException.class)
     public ResponseEntity<ProblemDetail> handleUserAlreadyExistsException(UserAlreadyExistsException ex) {
         ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(HttpStatus.CONFLICT, ex.getMessage());
         return new ResponseEntity<>(problemDetail, HttpStatus.CONFLICT);
     }
-
+    
     @ExceptionHandler(IllegalCriteriaArgumentsException.class)
-    public ResponseEntity<ProblemDetail> handleGenericException(IllegalCriteriaArgumentsException ex) {
+    public ResponseEntity<ProblemDetail> handleCriteriaException(IllegalCriteriaArgumentsException ex) {
         System.out.println("!Caught!");
         ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST, ex.getMessage());
         return new ResponseEntity<>(problemDetail, HttpStatus.BAD_REQUEST);

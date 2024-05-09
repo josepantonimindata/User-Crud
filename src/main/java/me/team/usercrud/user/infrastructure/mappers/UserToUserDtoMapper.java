@@ -3,6 +3,7 @@ package me.team.usercrud.user.infrastructure.mappers;
 import me.team.usercrud.shared.domain.Mapper;
 import me.team.usercrud.shared.infrastructure.dto.UserDto;
 import me.team.usercrud.user.domain.User;
+import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -15,12 +16,12 @@ public class UserToUserDtoMapper implements Mapper<User, UserDto> {
     }
 
     @Override
-    public UserDto from(User fromType) {
+    public UserDto from(@NonNull User fromType) {
         return mapper.to(fromType);
     }
 
     @Override
-    public User to(UserDto toType) {
+    public User to(@NonNull UserDto toType) {
         return mapper.from(toType);
     }
 }

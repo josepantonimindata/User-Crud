@@ -3,14 +3,17 @@ package me.team.usercrud.user.infrastructure.mappers;
 import me.team.usercrud.shared.domain.Mapper;
 import me.team.usercrud.shared.infrastructure.dto.UserDto;
 import me.team.usercrud.user.domain.*;
+import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Component;
+
+import java.util.UUID;
 
 @Component
 public class UserDtoToUser implements Mapper<UserDto, User> {
     @Override
-    public User from(UserDto userDto) {
+    public User from(@NonNull UserDto userDto) {
         return new User(
-            new UserId(userDto.id()),
+            new UserId(userDto.id().toString()),
             new UserName(userDto.name()),
             new UserSurname(userDto.surname()),
             new UserEmail(userDto.email()),
@@ -19,11 +22,11 @@ public class UserDtoToUser implements Mapper<UserDto, User> {
             new UserLastEditTime(null)
         );
     }
-
+    
     @Override
-    public UserDto to(User user) {
+    public UserDto to(@NonNull User user) {
         return new UserDto(
-            user.id().value(),
+            UUID.fromString(user.id().value()),
             user.name().value(),
             user.surname().value(),
             user.email().value(),

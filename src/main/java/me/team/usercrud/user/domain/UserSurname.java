@@ -1,6 +1,6 @@
 package me.team.usercrud.user.domain;
 
-import me.team.usercrud.shared.domain.StringValueObject;
+import me.team.usercrud.shared.domain.objects.StringValueObject;
 
 public final class UserSurname extends StringValueObject {
     public UserSurname(String value) {

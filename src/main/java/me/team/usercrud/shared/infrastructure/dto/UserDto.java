@@ -1,15 +1,16 @@
 package me.team.usercrud.shared.infrastructure.dto;
 
 import java.util.Objects;
+import java.util.UUID;
 
 public class UserDto {
-    private String id;
+    private UUID id;
     private String name;
     private String surname;
     private String email;
     private String password;
 
-    public UserDto(String id, String name, String surname, String email, String password) {
+    public UserDto(UUID id, String name, String surname, String email, String password) {
         this.id = id;
         this.name = name;
         this.surname = surname;
@@ -17,11 +18,11 @@ public class UserDto {
         this.password = password;
     }
 
-    public String id() {
+    public UUID id() {
         return id;
     }
 
-    public void id(String uuid) {
+    public void id(UUID uuid) {
         this.id = uuid;
     }
 

@@ -1,7 +1,13 @@
 package me.team.usercrud.shared.domain;
 
-public interface Mapper<From, To> {
-    To from(From from);
+import org.springframework.lang.NonNull;
+import org.springframework.lang.Nullable;
 
-    From to(To to);
+public interface Mapper<From, To> {
+    
+    @Nullable
+    To from(@NonNull From from);
+    
+    @Nullable
+    From to(@NonNull To to);
 }
