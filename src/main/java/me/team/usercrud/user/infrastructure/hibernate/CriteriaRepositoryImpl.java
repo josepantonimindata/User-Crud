@@ -6,6 +6,8 @@ import me.team.usercrud.shared.domain.criteria.Criteria;
 import me.team.usercrud.shared.domain.criteria.CriteriaRepository;
 import me.team.usercrud.shared.infrastructure.hibernate.CriteriaConverter;
 import me.team.usercrud.user.domain.User;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Repository;
 
@@ -35,5 +37,10 @@ public class CriteriaRepositoryImpl implements CriteriaRepository<User> {
         criteria.limit().ifPresent(query::setMaxResults);
         
         return query.getResultList().stream().map(entityUserMapper::map).toList();
+    }
+    
+    @Override
+    public Page<User> search(@NonNull Criteria criteria, Pageable pageable) {
+    
     }
 }

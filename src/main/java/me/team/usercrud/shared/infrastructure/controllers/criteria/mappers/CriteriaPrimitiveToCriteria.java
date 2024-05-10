@@ -37,14 +37,6 @@ public class CriteriaPrimitiveToCriteria implements Mapper<CriteriaPrimitive, Cr
             criteria.filters(filters.stream().map(filterMapper::map).toList());
         }
         
-        if (criteriaPrimitive.getLimit() != null) {
-            criteria.limit(criteriaPrimitive.getLimit());
-        }
-        
-        if (criteriaPrimitive.getOffset() != null) {
-            criteria.offset(criteriaPrimitive.getOffset());
-        }
-        
         return criteria;
     }
 }

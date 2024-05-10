@@ -9,10 +9,6 @@ public class CriteriaPrimitive {
     private List<FilterPrimitive> filters;
     @Nullable
     private OrderPrimitive order;
-    @Nullable
-    private Integer offset;
-    @Nullable
-    private Integer limit;
     
     public CriteriaPrimitive(@Nullable List<FilterPrimitive> filters, @Nullable OrderPrimitive order) {
         this.order = order;
@@ -41,23 +37,5 @@ public class CriteriaPrimitive {
     
     public void setFilters(@Nullable List<FilterPrimitive> filters) {
         this.filters = filters;
-    }
-    
-    @Nullable
-    public Integer getLimit() {
-        return limit;
-    }
-    
-    public void setLimit(@Nullable Integer limit) {
-        this.limit = limit;
-    }
-    
-    @Nullable
-    public Integer getOffset() {
-        return offset;
-    }
-    
-    public void setOffset(@Nullable Integer offset) {
-        this.offset = offset;
     }
 }

@@ -6,10 +6,10 @@ import me.team.usercrud.shared.infrastructure.controllers.criteria.CriteriaPrimi
 import me.team.usercrud.user.application.criteria.UserCriteriaService;
 import me.team.usercrud.user.domain.User;
 import me.team.usercrud.user.infrastructure.controllers.UserRequest;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
 
 @RestController
 public class UserSearchController {
@@ -28,11 +28,11 @@ public class UserSearchController {
     }
     
     @GetMapping("/users/search")
-    public List<UserRequest> search(CriteriaPrimitive criteriaRequest) {
+    public Page<UserRequest> search(Pageable pageable, CriteriaPrimitive criteriaRequest) {
         var criteria = criteriaMapper.map(criteriaRequest);
         
-        var users = userCriteriaService.search(criteria);
+        var users = userCriteriaService.search(criteria, pageable);
         
-        return users.stream().map(userMapper::map).toList();
+        return users.map(userMapper::map);
     }
 }
