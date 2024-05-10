@@ -4,7 +4,6 @@ import me.team.usercrud.shared.domain.exceptions.DateTimeInvalidException;
 import org.springframework.lang.NonNull;
 import org.springframework.lang.Nullable;
 
-import javax.annotation.Nonnull;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeParseException;
 import java.util.Objects;
@@ -63,7 +62,7 @@ public abstract class DateTimeValueObject implements Comparable<DateTimeValueObj
      * or greater than the specified DateTimeValueObject
      */
     @Override
-    public int compareTo(@Nonnull DateTimeValueObject other) {
+    public int compareTo(@NonNull DateTimeValueObject other) {
         isNotNull(other);
         
         return value.compareTo(other.value);

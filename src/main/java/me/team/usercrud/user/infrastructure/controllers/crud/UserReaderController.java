@@ -6,6 +6,7 @@ import me.team.usercrud.shared.domain.Mapper;
 import me.team.usercrud.user.application.crud.UserFinderService;
 import me.team.usercrud.user.domain.User;
 import me.team.usercrud.user.infrastructure.controllers.UserRequest;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,6 +15,7 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
+@CrossOrigin(origins = "*")
 public class UserReaderController {
     
     private final UserFinderService userFinderService;
