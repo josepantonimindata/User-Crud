@@ -1,54 +1,47 @@
 package me.team.usercrud.shared.infrastructure.controllers.criteria;
 
-import org.springframework.lang.NonNull;
-
-import java.util.Objects;
+import org.springframework.lang.Nullable;
 
 public class FilterPrimitive {
-    @NonNull
+    @Nullable
     private String field;
-    @NonNull
+    @Nullable
     private String operator;
-    @NonNull
+    @Nullable
     private String value;
     
-    public FilterPrimitive(@NonNull String field, @NonNull String operator, @NonNull String value) {
+    public FilterPrimitive(@Nullable String field, @Nullable String operator, @Nullable String value) {
         this.field = field;
         this.operator = operator;
         this.value = value;
     }
     
-    @NonNull
-    public String getField() {return this.field;}
+    public FilterPrimitive() {}
     
-    public void setField(@NonNull String field) {this.field = field;}
-    
-    @NonNull
-    public String getOperator() {return this.operator;}
-    
-    public void setOperator(@NonNull String operator) {this.operator = operator;}
-    
-    @NonNull
-    public String getValue() {return this.value;}
-    
-    public void setValue(@NonNull String value) {this.value = value;}
-    
-    public String toString() {return "FilterPrimitive(field=" + this.getField() + ", operator=" + this.getOperator() + ", value=" + this.getValue() + ")";}
-    
-    /// Generated Methods
-    
-    
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        FilterPrimitive that = (FilterPrimitive) o;
-        return Objects.equals(getField(), that.getField()) && Objects.equals(getOperator(),
-            that.getOperator()) && Objects.equals(getValue(), that.getValue());
+    @Nullable
+    public String getField() {
+        return this.field;
     }
     
-    @Override
-    public int hashCode() {
-        return Objects.hash(getField(), getOperator(), getValue());
+    public void setField(@Nullable String field) {
+        this.field = field;
+    }
+    
+    @Nullable
+    public String getOperator() {
+        return this.operator;
+    }
+    
+    public void setOperator(@Nullable String operator) {
+        this.operator = operator;
+    }
+    
+    @Nullable
+    public String getValue() {
+        return this.value;
+    }
+    
+    public void setValue(@Nullable String value) {
+        this.value = value;
     }
 }

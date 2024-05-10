@@ -12,11 +12,11 @@ import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Component;
 
 @Component
-public class CriteriaToCriteriaPrimitiveMapper implements Mapper<Criteria, CriteriaPrimitive> {
+public class CriteriaToCriteriaPrimitive implements Mapper<Criteria, CriteriaPrimitive> {
     private final Mapper<Filter, FilterPrimitive> filterMapper;
     private final Mapper<Order, OrderPrimitive> orderMapper;
     
-    public CriteriaToCriteriaPrimitiveMapper(
+    public CriteriaToCriteriaPrimitive(
         Mapper<Filter, FilterPrimitive> filterMapper,
         Mapper<Order, OrderPrimitive> orderMapper
     ) {
@@ -28,8 +28,8 @@ public class CriteriaToCriteriaPrimitiveMapper implements Mapper<Criteria, Crite
     @Override
     public CriteriaPrimitive map(@NonNull Criteria criteria) {
         return new CriteriaPrimitive(
-            ListUtils.map(criteria.filters(), filterMapper::map),
-            criteria.order().map(orderMapper::map)
+            ListUtils.map(criteria.filters(), filterMapper::map).orElse(null),
+            criteria.order().map(orderMapper::map).orElse(null)
         );
     }
 }

@@ -28,10 +28,18 @@ public class UserSearchController {
     }
     
     @GetMapping("/users/search")
-    public List<UserRequest> search(CriteriaPrimitive criteriaPrimitive) {
-        var criteria = criteriaMapper.map(criteriaPrimitive);
+    public List<UserRequest> search(CriteriaPrimitive criteriaRequest) {
+        System.out.println(criteriaRequest);
+        
+        var criteria = criteriaMapper.map(criteriaRequest);
+        
+        System.out.println("calling search");
         
         var users = userCriteriaService.search(criteria);
+        
+        System.out.println(users);
+        
+        System.out.println("returning...");
         
         return users.stream().map(userMapper::map).toList();
     }

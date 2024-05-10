@@ -47,8 +47,9 @@ Content-Type: application/json
 }
 
 ###
-GET localhost/users/search?order.orderBy=name&order.orderType=DESC&filters[0].field=name&filters[0].operator=GT&
-    filters[0].value=value1&filters[1].field=email&filters[1].operator=EQUAL&filters[1].value=value2
-
-###
-GET localhost/users/search
+GET localhost/users/search?
+    order.orderBy=name&
+    order.orderType=DESC&
+    filters%5B0%5D.field=name&
+    filters%5B0%5D.operator=EQUAL&
+    filters%5B0%5D.value=Andreu2

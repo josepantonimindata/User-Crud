@@ -1,43 +1,40 @@
 package me.team.usercrud.shared.infrastructure.controllers.criteria;
 
-import org.springframework.lang.NonNull;
-
-import java.util.Objects;
+import org.springframework.lang.Nullable;
 
 public class OrderPrimitive {
-    @NonNull
+    @Nullable
     private String orderBy;
-    @NonNull
+    @Nullable
     private String orderType;
     
-    public OrderPrimitive(@NonNull String orderBy, @NonNull String orderType) {
+    public OrderPrimitive(@Nullable String orderBy, @Nullable String orderType) {
         this.orderBy = orderBy;
         this.orderType = orderType;
     }
     
-    @NonNull
-    public String getOrderBy() {return this.orderBy;}
+    public OrderPrimitive() {}
     
-    public void setOrderBy(@NonNull String orderBy) {this.orderBy = orderBy;}
-    
-    @NonNull
-    public String getOrderType() {return this.orderType;}
-    
-    public void setOrderType(@NonNull String orderType) {this.orderType = orderType;}
-    
-    /// Generated Methods
-    
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        OrderPrimitive that = (OrderPrimitive) o;
-        return Objects.equals(getOrderBy(), that.getOrderBy()) && Objects.equals(getOrderType(),
-            that.getOrderType());
+    public boolean hasOrder() {
+        return orderType != null && orderBy != null;
     }
     
-    @Override
-    public int hashCode() {
-        return Objects.hash(getOrderBy(), getOrderType());
+    @Nullable
+    public String getOrderBy() {
+        return this.orderBy;
     }
+    
+    public void setOrderBy(@Nullable String orderBy) {
+        this.orderBy = orderBy;
+    }
+    
+    @Nullable
+    public String getOrderType() {
+        return this.orderType;
+    }
+    
+    public void setOrderType(@Nullable String orderType) {
+        this.orderType = orderType;
+    }
+    
 }
