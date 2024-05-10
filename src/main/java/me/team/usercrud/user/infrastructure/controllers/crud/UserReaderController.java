@@ -19,9 +19,9 @@ import java.util.UUID;
 public class UserReaderController {
     
     private final UserFinderService userFinderService;
-    private final Mapper<UserRequest, User> mapper;
+    private final Mapper<User, UserRequest> mapper;
     
-    public UserReaderController(UserFinderService userFinderService, Mapper<UserRequest, User> mapper) {
+    public UserReaderController(UserFinderService userFinderService, Mapper<User, UserRequest> mapper) {
         this.userFinderService = userFinderService;
         this.mapper = mapper;
     }
@@ -44,11 +44,11 @@ public class UserReaderController {
     public UserRequest getUser(@PathVariable UUID id) {
         var user = userFinderService.findUser(id.toString());
         
-        return mapper.to(user);
+        return mapper.map(user);
     }
     
     @GetMapping("/users")
     public List<UserRequest> findAll() {
-        return userFinderService.findAll().stream().map(mapper::to).toList();
+        return userFinderService.findAll().stream().map(mapper::map).toList();
     }
 }

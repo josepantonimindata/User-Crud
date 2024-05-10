@@ -1,44 +1,60 @@
 package me.team.usercrud.shared.domain.criteria;
 
+import org.springframework.lang.NonNull;
+
+import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 public class Criteria {
-    private Filters filters;
-    private Order order;
-
-    public Criteria(Filters filters, Order order) {
+    @NonNull
+    private Optional<List<Filter>> filters;
+    @NonNull
+    private Optional<Order> order;
+    
+    public Criteria(@NonNull Optional<List<Filter>> filters, @NonNull Optional<Order> order) {
         this.filters = filters;
         this.order = order;
     }
-
+    
+    public Criteria(@NonNull List<Filter> filters, @NonNull Order order) {
+        this.filters = Optional.of(filters);
+        this.order = Optional.of(order);
+    }
+    
+    @NonNull
     public static Criteria none() {
-        return new Criteria(Filters.empty(), Order.none());
+        return new Criteria(Optional.empty(), Optional.empty());
     }
-
-    public static Criteria withOrder(Order order) {
-        return new Criteria(Filters.empty(), order);
+    
+    @NonNull
+    public static Criteria withOrder(@NonNull Order order) {
+        return new Criteria(Optional.empty(), Optional.of(order));
     }
-
-    public static Criteria withFilters(Filters filters) {
-        return new Criteria(filters, Order.none());
+    
+    @NonNull
+    public static Criteria withFilters(@NonNull List<Filter> filters) {
+        return new Criteria(Optional.of(filters), Optional.empty());
     }
-
-    public boolean hasOrder() {
-        return order != null && order.hasOrder();
+    
+    @NonNull
+    public Optional<List<Filter>> filters() {
+        return this.filters;
     }
-
-    public boolean hasFilters() {
-        return filters != null && !filters.isEmpty();
+    
+    public void filters(@NonNull List<Filter> filters) {
+        this.filters = Optional.of(filters);
     }
-
-    public Filters filters()             {return this.filters;}
-
-    public void filters(Filters filters) {this.filters = filters;}
-
-    public Order order()                 {return this.order;}
-
-    public void order(Order order)       {this.order = order;}
-
+    
+    @NonNull
+    public Optional<Order> order() {
+        return this.order;
+    }
+    
+    public void order(@NonNull Order order) {
+        this.order = Optional.of(order);
+    }
+    
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -46,18 +62,18 @@ public class Criteria {
         Criteria criteria = (Criteria) o;
         return Objects.equals(filters, criteria.filters) && Objects.equals(order, criteria.order);
     }
-
+    
     @Override
     public int hashCode() {
         return Objects.hash(filters, order);
     }
-
+    
     @Override
     public String toString() {
         return "Criteria{" +
-            "filters=" + filters +
-            ", order=" + order +
-            '}';
+               "filters=" + filters +
+               ", order=" + order +
+               '}';
     }
 }
 

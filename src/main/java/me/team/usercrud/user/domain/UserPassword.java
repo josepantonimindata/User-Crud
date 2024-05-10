@@ -11,12 +11,12 @@ import me.team.usercrud.shared.domain.objects.StringValueObject;
 public final class UserPassword extends StringValueObject {
     private static final String regex = "/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g";
     private static final RegexValidator regexValidator = new RegexValidator(regex);
-
+    
     public UserPassword(String value) {
         super(value);
         guard(value);
     }
-
+    
     private String guard(String value) {
         if (regexValidator.validate(value)) {
             throw new IllegalArgumentException("Invalid password");

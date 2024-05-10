@@ -1,6 +1,7 @@
 package me.team.usercrud.user.infrastructure.hibernate;
 
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
@@ -11,12 +12,19 @@ import java.util.Objects;
 @Table(name = "users")
 public final class UserEntity {
     @Id
+    @Column(nullable = false)
     private String id;
+    @Column(nullable = false)
     private String name;
+    @Column(nullable = false)
     private String surname;
+    @Column(nullable = false)
     private String email;
+    @Column(nullable = false)
     private String password;
+    @Column(nullable = false)
     private String creationTime;
+    @Column(nullable = false)
     private String lastEditTime;
     
     public UserEntity(
@@ -39,9 +47,7 @@ public final class UserEntity {
     
     public UserEntity() {}
     
-    public static UserEntityBuilder builder() {
-        return new UserEntityBuilder();
-    }
+    // Getters & Setters
     
     public String id() {
         return id;
@@ -99,6 +105,8 @@ public final class UserEntity {
         this.lastEditTime = lastEditTime;
     }
     
+    // Generated Methods
+    
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -111,64 +119,5 @@ public final class UserEntity {
     @Override
     public int hashCode() {
         return Objects.hash(id, name, surname, email, password);
-    }
-    
-    public static class UserEntityBuilder {
-        private String id;
-        private String name;
-        private String surname;
-        private String email;
-        private String password;
-        private String creationTime;
-        private String lastEditTime;
-        
-        UserEntityBuilder() {}
-        
-        public UserEntityBuilder id(String id) {
-            this.id = id;
-            return this;
-        }
-        
-        public UserEntityBuilder name(String name) {
-            this.name = name;
-            return this;
-        }
-        
-        public UserEntityBuilder surname(String surname) {
-            this.surname = surname;
-            return this;
-        }
-        
-        public UserEntityBuilder email(String email) {
-            this.email = email;
-            return this;
-        }
-        
-        public UserEntityBuilder password(String password) {
-            this.password = password;
-            return this;
-        }
-        
-        public UserEntityBuilder creationTime(String creationTime) {
-            this.creationTime = creationTime;
-            return this;
-        }
-        
-        public UserEntityBuilder lastEditTime(String lastEditTime) {
-            this.lastEditTime = lastEditTime;
-            return this;
-        }
-        
-        public UserEntity build() {
-            return new UserEntity(this.id,
-                this.name,
-                this.surname,
-                this.email,
-                this.password,
-                this.creationTime,
-                this.lastEditTime);
-        }
-        
-        public String toString() {return "UserEntity.UserEntityBuilder(id=" + this.id + ", name=" + this.name + ", surname=" + this.surname + ", email=" + this.email + ", password=" + this.password + ", creationTime=" + this.creationTime + ", lastEditTime=" + this.lastEditTime + ")";}
     }
 }
