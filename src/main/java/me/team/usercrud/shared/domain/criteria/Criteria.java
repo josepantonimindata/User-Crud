@@ -11,30 +11,44 @@ public class Criteria {
     private Optional<List<Filter>> filters;
     @NonNull
     private Optional<Order> order;
+    @NonNull
+    private Optional<Integer> offset;
+    @NonNull
+    private Optional<Integer> limit;
     
-    public Criteria(@NonNull Optional<List<Filter>> filters, @NonNull Optional<Order> order) {
+    public Criteria(
+        @NonNull Optional<List<Filter>> filters, @NonNull Optional<Order> order,
+        @NonNull Optional<Integer> offset, @NonNull Optional<Integer> limit
+    ) {
         this.filters = filters;
         this.order = order;
+        this.offset = offset;
+        this.limit = limit;
     }
     
-    public Criteria(@NonNull List<Filter> filters, @NonNull Order order) {
+    public Criteria(
+        @NonNull List<Filter> filters, @NonNull Order order, @NonNull int offset,
+        @NonNull int limit
+    ) {
         this.filters = Optional.of(filters);
         this.order = Optional.of(order);
+        this.offset = Optional.of(offset);
+        this.limit = Optional.of(limit);
     }
     
     @NonNull
     public static Criteria none() {
-        return new Criteria(Optional.empty(), Optional.empty());
+        return new Criteria(Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty());
     }
     
     @NonNull
     public static Criteria withOrder(@NonNull Order order) {
-        return new Criteria(Optional.empty(), Optional.of(order));
+        return new Criteria(Optional.empty(), Optional.of(order), Optional.empty(), Optional.empty());
     }
     
     @NonNull
     public static Criteria withFilters(@NonNull List<Filter> filters) {
-        return new Criteria(Optional.of(filters), Optional.empty());
+        return new Criteria(Optional.of(filters), Optional.empty(), Optional.empty(), Optional.empty());
     }
     
     @NonNull
@@ -53,6 +67,24 @@ public class Criteria {
     
     public void order(@NonNull Order order) {
         this.order = Optional.of(order);
+    }
+    
+    @NonNull
+    public Optional<Integer> limit() {
+        return limit;
+    }
+    
+    public void limit(@NonNull Integer limit) {
+        this.limit = Optional.of(limit);
+    }
+    
+    @NonNull
+    public Optional<Integer> offset() {
+        return offset;
+    }
+    
+    public void offset(@NonNull Integer offset) {
+        this.offset = Optional.of(offset);
     }
     
     @Override

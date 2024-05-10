@@ -29,6 +29,11 @@ public class CriteriaRepositoryImpl implements CriteriaRepository<User> {
     public List<User> search(@NonNull Criteria criteria) {
         var criteriaQuery = userCriteriaConverter.convert(criteria, UserEntity.class);
         
-        return em.createQuery(criteriaQuery).getResultList().stream().map(entityUserMapper::map).toList();
+        var query = em.createQuery(criteriaQuery);
+        
+        criteria.offset().ifPresent(query::setFirstResult);
+        criteria.limit().ifPresent(query::setMaxResults);
+        
+        return query.getResultList().stream().map(entityUserMapper::map).toList();
     }
 }

@@ -48,6 +48,7 @@ Content-Type: application/json
 
 ###
 GET localhost/users/search?
+    limit=1&
     order.orderBy=name&
     order.orderType=DESC&
     filters%5B0%5D.field=name&
