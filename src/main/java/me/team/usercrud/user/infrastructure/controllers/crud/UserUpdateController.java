@@ -5,11 +5,13 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import me.team.usercrud.user.application.crud.UserUpdateService;
 import me.team.usercrud.user.domain.User;
 import me.team.usercrud.user.infrastructure.controllers.UserRequest;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@CrossOrigin(origins = "*")
 public class UserUpdateController {
     
     private final UserUpdateService userUpdateService;

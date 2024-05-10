@@ -3,6 +3,7 @@ package me.team.usercrud.user.infrastructure.controllers.crud;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import me.team.usercrud.user.application.crud.UserDeleteService;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.UUID;
 
 @RestController
+@CrossOrigin(origins = "*")
 public class UserDeleteController {
     
     private final UserDeleteService userDeleteService;

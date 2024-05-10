@@ -6,12 +6,10 @@ import me.team.usercrud.user.application.crud.UserCreateService;
 import me.team.usercrud.user.domain.*;
 import me.team.usercrud.user.infrastructure.controllers.UserRequest;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
+@CrossOrigin(origins = "*")
 public class UserCreateController {
     
     private final UserCreateService userCreateService;
