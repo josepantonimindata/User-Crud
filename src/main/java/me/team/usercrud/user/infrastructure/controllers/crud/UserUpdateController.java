@@ -39,7 +39,8 @@ public class UserUpdateController {
                     schema = @Schema(implementation = ProblemDetail.class)
                 )
             )
-        }
+        },
+        tags = {"User"}
     )
     @PutMapping("/users")
     public void updateUser(@RequestBody UserRequest user) {

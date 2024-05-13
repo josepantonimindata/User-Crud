@@ -74,7 +74,8 @@ public class UserSearchController {
                     schema = @Schema(implementation = ProblemDetail.class)
                 )
             )
-        }
+        },
+        tags = {"User"}
     )
     @GetMapping("/users/search")
     public Page<UserRequest> search(CriteriaPrimitive criteriaRequest) {

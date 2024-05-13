@@ -40,7 +40,8 @@ public class UserDeleteController {
                     schema = @Schema(implementation = ProblemDetail.class)
                 )
             )
-        }
+        },
+        tags = {"User"}
     )
     @DeleteMapping("/users/{id}")
     public void deleteUserById(@PathVariable UUID id) {

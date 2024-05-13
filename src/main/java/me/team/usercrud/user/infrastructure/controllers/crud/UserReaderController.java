@@ -8,7 +8,6 @@ import me.team.usercrud.shared.domain.Mapper;
 import me.team.usercrud.user.application.crud.UserFinderService;
 import me.team.usercrud.user.domain.User;
 import me.team.usercrud.user.infrastructure.controllers.UserRequest;
-import org.springframework.beans.factory.parsing.Problem;
 import org.springframework.http.ProblemDetail;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -47,7 +46,8 @@ public class UserReaderController {
                     schema = @Schema(implementation = ProblemDetail.class)
                 )
             )
-        }
+        },
+        tags = {"User"}
     )
     @GetMapping("/users/{id}")
     public UserRequest getUser(@PathVariable UUID id) {
@@ -65,7 +65,8 @@ public class UserReaderController {
                 responseCode = "200",
                 useReturnTypeSchema = true
             ),
-        }
+        },
+        tags = {"User"}
     )
     @GetMapping("/users")
     public List<UserRequest> findAll() {

@@ -27,8 +27,7 @@ public class UserCreateController {
         responses = {
             @ApiResponse(
                 description = "Success",
-                responseCode = "201",
-                useReturnTypeSchema = true
+                responseCode = "201"
             ),
             @ApiResponse(
                 description = "Conflict, User UUID already exists",
@@ -38,7 +37,8 @@ public class UserCreateController {
                     schema = @Schema(implementation = ProblemDetail.class)
                 )
             )
-        }
+        },
+        tags = {"User"}
     )
     @PostMapping("/users")
     @ResponseStatus(HttpStatus.CREATED)
