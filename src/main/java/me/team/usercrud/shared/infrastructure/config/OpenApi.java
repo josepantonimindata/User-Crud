@@ -10,4 +10,6 @@ import io.swagger.v3.oas.annotations.info.Info;
         description = "Proxy API - Service of the database CRUD & Criteria - User"
     )
 )
-public class OpenApi {}
+public class OpenApi {
+
+}

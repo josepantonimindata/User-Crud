@@ -1,5 +1,6 @@
 package me.team.usercrud.user.infrastructure.controllers.handlers;
 
+import me.team.usercrud.shared.domain.exceptions.NullArgumentException;
 import me.team.usercrud.user.application.exceptions.IllegalCriteriaArgumentsException;
 import me.team.usercrud.user.application.exceptions.UserAlreadyExistsException;
 import me.team.usercrud.user.application.exceptions.UserNotFoundException;
@@ -35,6 +36,18 @@ public class UserExceptionHandler {
     public ResponseEntity<ProblemDetail> handleCriteriaException(IllegalCriteriaArgumentsException ex) {
         System.out.println("!Caught!");
         ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST, ex.getMessage());
+        return new ResponseEntity<>(problemDetail, HttpStatus.BAD_REQUEST);
+    }
+    
+    @ExceptionHandler(NullArgumentException.class)
+    public ResponseEntity<ProblemDetail> handleCriteriaException(NullArgumentException ex) {
+        System.out.println("!Caught!");
+        ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST, ex.getMessage());
+        
+        ex.field().ifPresent(field -> {
+            problemDetail.setProperty("field", field);
+        });
+        
         return new ResponseEntity<>(problemDetail, HttpStatus.BAD_REQUEST);
     }
 }

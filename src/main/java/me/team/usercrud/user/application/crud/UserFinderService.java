@@ -29,6 +29,7 @@ public class UserFinderService {
     
     public List<User> findAll() {
         var users = userRepository.findAll();
+        
         if (users == null) {
             users = new ArrayList<>();
         }
