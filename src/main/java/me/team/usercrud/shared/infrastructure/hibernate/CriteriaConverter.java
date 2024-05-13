@@ -41,6 +41,11 @@ public final class CriteriaConverter<T> {
         return criteriaQuery;
     }
     
+    public <C> void apply(Criteria criteria, Class<T> aggregateClass, CriteriaQuery<C> query) {
+        Root<T> root = query.from(aggregateClass);
+        criteria.filters().ifPresent(filters -> query.where(formatPredicates(filters, root)));
+    }
+    
     private Predicate[] formatPredicates(List<Filter> filters, Root<T> root) {
         List<Predicate> predicates = filters.stream().map(filter -> formatPredicate(filter, root)).toList();
         
