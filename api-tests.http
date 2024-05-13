@@ -47,8 +47,8 @@ Content-Type: application/json
 }
 
 ###
-GET localhost/users/search?
-    order.orderBy=name
+GET localhost/users/search
+    ?order.orderBy=name
     &order.orderType=DESC
     &filters%5B0%5D.field=name
     &filters%5B0%5D.operator=EQUAL

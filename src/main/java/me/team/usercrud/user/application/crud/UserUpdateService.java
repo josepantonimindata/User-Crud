@@ -24,16 +24,18 @@ public class UserUpdateService {
         var creationDate = oldUser.get().creationTime();
         var userLastEditTime = new UserLastEditTime(LocalDateTime.now().toString());
         
-        return userRepository.save(
-            new User(
-                new UserId(userId),
-                new UserName(userName),
-                new UserSurname(userSurname),
-                new UserEmail(userEmail),
-                new UserPassword(userPassword),
-                creationDate,
-                userLastEditTime
-            )
+        final var user = new User(
+            new UserId(userId),
+            new UserName(userName),
+            new UserSurname(userSurname),
+            new UserEmail(userEmail),
+            new UserPassword(userPassword),
+            creationDate,
+            userLastEditTime
         );
+        
+        userRepository.save(user);
+        
+        return user;
     }
 }
