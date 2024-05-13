@@ -15,7 +15,7 @@ public class CriteriaPrimitive {
         this.filters = filters;
     }
     
-    public CriteriaPrimitive() {}
+    public CriteriaPrimitive() { }
     
     public boolean hasOrder() {
         return order != null && order.hasOrder();
