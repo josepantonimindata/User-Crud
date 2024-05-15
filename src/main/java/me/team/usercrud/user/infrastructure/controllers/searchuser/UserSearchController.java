@@ -11,6 +11,7 @@ import me.team.usercrud.shared.infrastructure.controllers.criteria.CriteriaPrimi
 import me.team.usercrud.user.application.criteria.UserCriteriaService;
 import me.team.usercrud.user.domain.User;
 import me.team.usercrud.user.infrastructure.controllers.UserRequest;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -22,11 +23,12 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Optional;
 
 @RestController
+@CrossOrigin(origins = "*")
 public class UserSearchController {
     private final UserCriteriaService userCriteriaService;
     private final Mapper<User, UserRequest> userMapper;
     private final Mapper<CriteriaPrimitive, Criteria> criteriaMapper;
-    
+
     public UserSearchController(
         UserCriteriaService userCriteriaService,
         Mapper<User, UserRequest> userMapper,
@@ -36,7 +38,7 @@ public class UserSearchController {
         this.userMapper = userMapper;
         this.criteriaMapper = criteriaMapper;
     }
-    
+
     @Operation(
         summary = "Search a User",
         description = """
@@ -80,35 +82,35 @@ public class UserSearchController {
     @GetMapping("/users/search")
     public Page<UserRequest> search(CriteriaPrimitive criteriaRequest) {
         var criteria = criteriaMapper.map(criteriaRequest);
-        
+
         var pageable = createPageRequest(criteria.order(), criteriaRequest.getPage(), criteriaRequest.getSize());
-        
+
         var users = userCriteriaService.search(criteria, pageable);
-        
+
         return users.map(userMapper::map);
     }
-    
+
     public Pageable createPageRequest(Optional<Order> optionalOrder, Integer pageNumber, Integer pageSize) {
         Sort sort = Sort.unsorted();
-        
+
         if (optionalOrder.isPresent()) {
             var order = optionalOrder.get();
-            
+
             if ("ASC".equalsIgnoreCase(order.orderType().toString())) {
                 sort = Sort.by(order.orderBy().toString()).ascending();
             } else if ("DESC".equalsIgnoreCase(order.orderType().toString())) {
                 sort = Sort.by(order.orderBy().toString()).descending();
             }
         }
-        
+
         if (pageNumber == null) {
             pageNumber = 0;
         }
-        
+
         if (pageSize == null) {
-            pageSize = 20;
+            pageSize = Integer.MAX_VALUE;
         }
-        
+
         return PageRequest.of(pageNumber, pageSize, sort);
     }
 }
